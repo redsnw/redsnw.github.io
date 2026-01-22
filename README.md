@@ -6,14 +6,14 @@ Detta är ett virus phishing metod som grundar på att lura användaren att är 
 
 FakeError bild exempel
 
-https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlFgZ371OJLB7x0fK_3a34h710DpAHQLeyLQyaBpp1jhfsFyRD0-tmkLhXAvv0VD1XnU_WK8g5O16VUob1aHIyQf2smhkn6llIaC_H5_6MwogFRD11Hfp-w2kPc9vgiBUTlnftXM7VuCMsFmBPwxtyvAokqOJbgSAndESDU3qZV6-R9SH6meqbyuyoFk8n/s1600-e365/windows.jpg
+!(https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlFgZ371OJLB7x0fK_3a34h710DpAHQLeyLQyaBpp1jhfsFyRD0-tmkLhXAvv0VD1XnU_WK8g5O16VUob1aHIyQf2smhkn6llIaC_H5_6MwogFRD11Hfp-w2kPc9vgiBUTlnftXM7VuCMsFmBPwxtyvAokqOJbgSAndESDU3qZV6-R9SH6meqbyuyoFk8n/s1600-e365/windows.jpg)
 
 # Fakecaptcha 
 
 Funkar exakt samma some FakeError de enda skillnaden är att de står "för att lösa captchan behöver du win + r  ctrl + v"
 
 Bild exempel 
-https://any.run/cybersecurity-blog/wp-content/uploads/2024/10/phish_cam_1-768x768.jpeg
+!(https://any.run/cybersecurity-blog/wp-content/uploads/2024/10/phish_cam_1-768x768.jpeg)
 taget från https://any.run/cybersecurity-blog/cyber-attacks-october-2024/
 
 
