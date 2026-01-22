@@ -1,4 +1,6 @@
-# Fakecaptcha / FakeError hemsida phishing teknik analys
+# Fakecaptcha / FakeError Phishing Analys
+Detta kommer vara en sammanfattning av alla rapporter och information om ett slags phishing metod som används av hackarna. 
+
 
 
 # FakeError
