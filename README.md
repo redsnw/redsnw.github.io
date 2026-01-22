@@ -1,14 +1,14 @@
 # Fakecaptcha / FakeError hemsida phishing teknik analys
 
 
-#FakeError
+# FakeError
 Detta är ett virus phishing metod som grundar på att lura användaren att är nåt fel på en hemsida som liknar en riktig hemsida, som sen visar hur man kan "fixa" problemet genom att trycka WIN + R och sen CTRL + V. Detta klistrar in en skadlig powershell kod i windows run.
 
 FakeError bild exempel
 
 https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlFgZ371OJLB7x0fK_3a34h710DpAHQLeyLQyaBpp1jhfsFyRD0-tmkLhXAvv0VD1XnU_WK8g5O16VUob1aHIyQf2smhkn6llIaC_H5_6MwogFRD11Hfp-w2kPc9vgiBUTlnftXM7VuCMsFmBPwxtyvAokqOJbgSAndESDU3qZV6-R9SH6meqbyuyoFk8n/s1600-e365/windows.jpg
 
-#Fakecaptcha 
+# Fakecaptcha 
 
 Funkar exakt samma some FakeError de enda skillnaden är att de står "för att lösa captchan behöver du win + r  ctrl + v"
 
