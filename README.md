@@ -15,7 +15,7 @@ FakeError bild exempel
 Funkar exakt samma some FakeError de enda skillnaden är att de står "för att lösa captchan behöver du win + r  ctrl + v"
 
 Bild exempel 
-!(https://any.run/cybersecurity-blog/wp-content/uploads/2024/10/phish_cam_1-768x768.jpeg)
+![FakeCaptcha](https://any.run/cybersecurity-blog/wp-content/uploads/2024/10/phish_cam_1-768x768.jpeg)
 taget från https://any.run/cybersecurity-blog/cyber-attacks-october-2024/
 
 
