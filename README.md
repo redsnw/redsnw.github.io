@@ -1,5 +1,5 @@
 # FakeCaptcha Phishing Analys
-Denna bloggen kommer innehålla kortfattad information som jag har hittat när det gäller FakeCaptcha Phishing och Labb.
+Denna bloggen kommer innehålla kortfattad information som jag har hittat när det gäller FakeCaptcha Phishing.
 
 
 # Fakecaptcha 
@@ -51,7 +51,7 @@ hxxp"s://ka"j"e"c.icu"/f"04b18c2f7ff"48bdbf06"701"38"f9eb2"4f.txt | pow"e"rs"h"e
 
 Ett av hackarnas mål är att försöka få användarna tro att hemsidan och att instruktionerna är äkta och det gör dom genom att ändra domän namnet till nåt som ser äkta ut oftast använder dom populära hemsidor som facebook eller microsoft. 
 
-Så som bilden visar gör dom backgrunden till den riktiga hemsidan fast suddig.
+Så som bilden visar nedanför gör dom backgrunden till den riktiga hemsidan fast suddig.
 
 ![FakeCaptcha](https://www.york.ac.uk/media/it-services/images/about/news/2025/Fake%20captcha,%20full%20browser.png)
 
@@ -75,10 +75,30 @@ En Lista för hackarnas olika sätt att sprida FakeCaptcha / FakeError hemsidorn
 Dom använder även andra metoder för att förhindra att bli påkommna av säkerhets företagen gemom att använda Cloudflare captcha på deras egna illvilliga hemsida, för att sen förhindra web crawlers av säkerhets företagen att hitta deras skadlig kod.
 
 
-# Referenser
-
 # Konsekvenserna
+Virusen som blir installerad är oftast Stealers eller RAT som sen leder till konto kappning, bedrägeri eller crypto mining
 
-# Labb
+# Labb ide
+Göra en enkel version av detta med hjälp av attack och defend vm's 
+Öppna calculator på defend vm från attack vm. 
 
 # Referenser
+````
+https://any.run/cybersecurity-blog/new-phishing-tactics/
+
+https://app.any.run/tasks/22b677ed-8ee9-4c25-81c0-fd9073540009/?
+utm_source=anyrunblog&utm_medium=article_bottom&utm_campaign=newphishing11102023&utm_content=task
+
+https://intelligence.any.run/analysis/lookup#{%22query%22:%22threatName:%5C%22qrcode%5C%22%22,%22dateRange%22:180}
+
+https://pcriot.com.au/fake-cloudflare-win-r-malware-what-it-is-how-it-works-and-how-to-clean-your-site/
+
+https://community.spiceworks.com/t/getting-out-of-scareware-when-its-full-screen-and-doesnt-respond-to-control-al/966997 -- hackarna
+använder tvingat fullscreen för sin hemsida?
+
+https://www.malwarebytes.com/blog/news/2025/03/fake-captcha-websites-hijack-your-clipboard-to-install-information-stealers
+
+https://thehackernews.com/2025/08/clickfix-malware-campaign-exploits.html -- bra analys
+
+https://unit42.paloaltonetworks.com/preventing-clickfix-attack-vecto
+````
