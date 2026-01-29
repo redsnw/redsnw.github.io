@@ -115,7 +115,7 @@ Gör det svårare:
 - Håll webbläsare + OS uppdaterade  
 - Använd uBlock Origin / reklamblockerare  
 - Var allergisk mot â€œgratis filmerâ€, torrent-sidor, â€œPC supportâ€-popups, exempel på bilden nedanför.
-![FakeErrorBild](https://www.tripwire.com/sites/default/files/tech-support-scam-message-box-2.png)
+![FakeErrorBild](https://its.uky.edu/sites/default/files/styles/max_650x650/public/2023-06/fake_microsoft_support_site.webp?itok=WAwygnyQ)
 
 ### 5. För företag / sysadmins
 Vanliga FakeCaptcha-kedjor använder lolbins (living-off-the-land).  
