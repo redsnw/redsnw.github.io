@@ -112,14 +112,14 @@ Vanor som räddar dig:
 - Misstänker du manipulation? Kopiera ett enda ord (typ “test”) först → då skriver du över skiten
 
 ### 4. Minska ytan
-ClickFix kommer oftast via malvertising, phishing eller hackade sajter.  
+FakeCaptcha kommer oftast via malvertising, phishing eller hackade sajter.  
 Gör det svårare:
 - Håll webbläsare + OS uppdaterade  
 - Använd uBlock Origin / reklamblockerare  
 - Var allergisk mot “gratis filmer”, torrent-sidor, “PC support”-popups
 
 ### 5. För företag / sysadmins
-Vanliga ClickFix-kedjor använder lolbins (living-off-the-land).  
+Vanliga FakeCaptcha-kedjor använder lolbins (living-off-the-land).  
 Bra snabba wins:
 - Logga / begränsa PowerShell (särskilt -EncodedCommand / -WindowStyle Hidden)  
 - EDR-regel: larma på explorer.exe → powershell.exe / mshta.exe med suspekt cmdline  
@@ -160,7 +160,7 @@ Bra snabba wins:
    vill att du kör kommando / ringer nummer / laddar ner “fix”
 
 **Regel #1 att komma ihåg:**  
-Om sidan ber dig köra något i Win+R / Terminal → stäng omedelbart. Det är ClickFix.
+Om sidan ber dig köra något i Win+R / Terminal → stäng omedelbart. Det är FakeCaptcha.
 
 Vill du att jag kollar en specifik domän?  
 Klistra bara in **domännamnet** (inget mer) så kör jag checklistan och säger vad som är rött/grönt.
@@ -200,8 +200,8 @@ använder tvingat fullscreen för sin hemsida?
 
 https://www.malwarebytes.com/blog/news/2025/03/fake-captcha-websites-hijack-your-clipboard-to-install-information-stealers
 
-https://thehackernews.com/2025/08/clickfix-malware-campaign-exploits.html -- bra analys
+https://thehackernews.com/2025/08/FakeCaptcha-malware-campaign-exploits.html -- bra analys
 
-https://unit42.paloaltonetworks.com/preventing-clickfix-attack-vecto
+https://unit42.paloaltonetworks.com/preventing-FakeCaptcha-attack-vecto
 ````
 {% endraw %}
