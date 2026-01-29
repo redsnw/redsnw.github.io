@@ -1,7 +1,6 @@
 ---
 layout: post
 title: ""
-date: 2026-01-29
 categories: [blogpost]
 tags: [FakeCaptcha, Phishing, PowerShell]
 render_with_liquid: false
