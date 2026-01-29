@@ -5,6 +5,7 @@ date: 2026-01-29
 categories: [blogpost]
 tags: [FakeCaptcha, Phishing, PowerShell]
 render_with_liquid: false
+image : ![FakeCaptcha](https://www.trendmicro.com/content/dam/trendmicro/global/en/research/25/e/unmasking-fake-captcha-cases-in-mxdr-investigations/Fig-10.png)
 ---
 
 <!--more-->
