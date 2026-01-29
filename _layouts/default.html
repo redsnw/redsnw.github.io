@@ -80,6 +80,39 @@
         padding: 24px 20px 60px;
       }
 
+      .glossary-term {
+        position: relative;
+        border-bottom: 1px dotted rgba(0, 255, 156, 0.7);
+        cursor: help;
+      }
+
+      .glossary-term::after {
+        content: attr(data-tip);
+        position: absolute;
+        left: 0;
+        bottom: 125%;
+        min-width: 220px;
+        max-width: 340px;
+        background: #0f1418;
+        color: var(--fg);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        box-shadow: 0 10px 30px rgba(0,0,0,.35);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(6px);
+        transition: opacity .15s ease, transform .15s ease;
+        z-index: 20;
+      }
+
+      .glossary-term:hover::after {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
       @media (max-width: 640px) {
         .topbar-inner {
           flex-direction: column;
@@ -102,5 +135,108 @@
     <main class="wrap">
       {{ content }}
     </main>
+    <script>
+      (function () {
+        var post = document.querySelector(".post");
+        if (!post) return;
+
+        var glossary = [
+          { term: "FakeCaptcha", def: "Phishingmetod som lurar anvandaren att sjalv kora skadlig kod via falsk CAPTCHA.", pattern: "\\bFakeCaptcha\\b" },
+          { term: "phishing", def: "Angrepp dar angripare lurar anvandare att gora nagot farligt eller lamna ut info.", pattern: "\\bphishing\\b" },
+          { term: "CAPTCHA", def: "Test som ska skilja manniskor fran botar, ofta missbrukat i bluffar.", pattern: "\\bCAPTCHA\\b" },
+          { term: "reCAPTCHA", def: "CAPTCHA-variant som ofta visas pa webbsidor.", pattern: "\\breCAPTCHA\\b" },
+          { term: "PowerShell", def: "Windows-kommandoskal och skriptsprak som ofta utnyttjas i attacker.", pattern: "\\bPowerShell\\b" },
+          { term: "mshta.exe", def: "Windows-program som kan kora HTML/skript och anvands ibland som LOLBin.", pattern: "mshta\\.exe" },
+          { term: "Win+R", def: "Kortkommando som oppnar Run-dialogen i Windows.", pattern: "Win\\+R" },
+          { term: "Run", def: "Windows dialog for att kora kommandon snabbt.", pattern: "\\bRun\\b" },
+          { term: "clipboard", def: "Urklipp som kan fyllas med skadliga kommandon.", pattern: "\\bclipboard\\b" },
+          { term: "Malvertising", def: "Skadlig annonsering som leder till bluff- eller malware-sidor.", pattern: "\\bmalvertising\\b" },
+          { term: "SEO-poisoning", def: "Manipulation av sokresultat for att fa skadliga sidor att ranka hogt.", pattern: "SEO-?poisoning" },
+          { term: "redirects", def: "Omdirigeringar som skickar dig vidare till en annan sida.", pattern: "\\bredirects\\b" },
+          { term: "EDR", def: "Endpoint Detection and Response, upptacker och stoppar attacker.", pattern: "\\bEDR\\b" },
+          { term: "LOLBins", def: "Living-off-the-land verktyg i OS som missbrukas av angripare.", pattern: "\\bLOLBins\\b" },
+          { term: "-EncodedCommand", def: "PowerShell-flagga for att kora kod i kodad form.", pattern: "-EncodedCommand" },
+          { term: "-WindowStyle Hidden", def: "PowerShell-flagga som korer kommandon dolt.", pattern: "-WindowStyle\\s+Hidden" },
+          { term: "AV", def: "Antivirus som upptacker och tar bort skadlig kod.", pattern: "\\bAV\\b" },
+          { term: "MFA", def: "Multifaktorautentisering, extra steg ut over losenord.", pattern: "\\bMFA\\b" },
+          { term: "Punycode", def: "Kodning som kan gora falska domaner svarta att se.", pattern: "\\bPunycode\\b" },
+          { term: "IDN", def: "Internationalized Domain Names, kan utnyttjas for homoglyfer.", pattern: "\\bIDN\\b" },
+          { term: "HTTPS", def: "Krypterad anslutning mellan webblasare och server.", pattern: "\\bHTTPS\\b" },
+          { term: "stealer", def: "Malware som stal inloggningar och data.", pattern: "\\bstealer(s)?\\b" },
+          { term: "RAT", def: "Remote Access Trojan, ger angriparen fjarrkontroll.", pattern: "\\bRAT\\b" },
+          { term: "malware", def: "Skadlig kod som infekterar system.", pattern: "\\bmalware\\b" },
+          { term: "crypto mining", def: "Missbruk av datorn for att utvinna kryptovaluta.", pattern: "crypto\\s+mining" }
+        ];
+
+        var patterns = glossary.map(function (g) { return g.pattern; });
+        var re = new RegExp("(" + patterns.join("|") + ")", "gi");
+        var byTerm = {};
+        glossary.forEach(function (g) {
+          byTerm[g.term.toLowerCase()] = g;
+        });
+
+        function wrapNode(textNode) {
+          var text = textNode.nodeValue;
+          if (!re.test(text)) return;
+          re.lastIndex = 0;
+
+          var frag = document.createDocumentFragment();
+          var last = 0;
+          var m;
+          while ((m = re.exec(text)) !== null) {
+            var match = m[0];
+            var start = m.index;
+            var end = start + match.length;
+            if (start > last) {
+              frag.appendChild(document.createTextNode(text.slice(last, start)));
+            }
+
+            var key = match.toLowerCase();
+            var entry = byTerm[key];
+            if (!entry) {
+              for (var i = 0; i < glossary.length; i++) {
+                var testRe = new RegExp("^" + glossary[i].pattern + "$", "i");
+                if (testRe.test(match)) { entry = glossary[i]; break; }
+              }
+            }
+
+            if (entry) {
+              var span = document.createElement("span");
+              span.className = "glossary-term";
+              span.setAttribute("data-tip", entry.def);
+              span.textContent = match;
+              frag.appendChild(span);
+            } else {
+              frag.appendChild(document.createTextNode(match));
+            }
+
+            last = end;
+          }
+          if (last < text.length) {
+            frag.appendChild(document.createTextNode(text.slice(last)));
+          }
+          textNode.parentNode.replaceChild(frag, textNode);
+        }
+
+        var walker = document.createTreeWalker(
+          post,
+          NodeFilter.SHOW_TEXT,
+          {
+            acceptNode: function (node) {
+              if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+              var parent = node.parentNode;
+              if (!parent) return NodeFilter.FILTER_REJECT;
+              var tag = parent.nodeName;
+              if (/(SCRIPT|STYLE|CODE|PRE|A|TEXTAREA|KBD)/.test(tag)) return NodeFilter.FILTER_REJECT;
+              return NodeFilter.FILTER_ACCEPT;
+            }
+          }
+        );
+
+        var nodes = [];
+        while (walker.nextNode()) nodes.push(walker.currentNode);
+        nodes.forEach(wrapNode);
+      })();
+    </script>
   </body>
 </html>
