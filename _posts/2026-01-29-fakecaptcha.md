@@ -5,7 +5,6 @@ date: 2026-01-29
 categories: [blogpost]
 tags: [FakeCaptcha, Phishing, PowerShell]
 render_with_liquid: false
-image: assets/img/phish_cam_1-768x768.jpeg
 ---
 
 <!--more-->
