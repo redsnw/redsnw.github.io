@@ -95,6 +95,76 @@ En Lista för hackarnas olika sätt att sprida FakeCaptcha / FakeError hemsidorn
 - Fake tech support / tutorials
 - E-mail
 
+# Stoppa FakeCaptcha innan det händer
+
+### 1. Känn igen mönstret direkt
+- CAPTCHA som säger **Win+R → Ctrl+V → Enter** = 99,9 % bluff  
+- Samma sak med: “du är infekterad”, “fixa fel nu”, “verify human”, “säkerhetsuppdatering” + instruktioner till Run eller Terminal
+
+### 2. Avbryt korrekt (utan att köra något)
+- Stäng fliken eller hela webbläsaren  
+- Poppar helskärm eller blockerar? → **Alt+F4** / **Ctrl+W** / döda processen i Aktivitetshanteraren
+
+### 3. Clipboard är fienden
+De flesta varianter fyller urklippet med skadlig kommandorad.  
+Vanor som räddar dig:
+- Klistra **aldrig** in okänd text i Run / PowerShell / Terminal  
+- Misstänker du manipulation? Kopiera ett enda ord (typ “test”) först → då skriver du över skiten
+
+### 4. Minska ytan
+ClickFix kommer oftast via malvertising, phishing eller hackade sajter.  
+Gör det svårare:
+- Håll webbläsare + OS uppdaterade  
+- Använd uBlock Origin / reklamblockerare  
+- Var allergisk mot “gratis filmer”, torrent-sidor, “PC support”-popups
+
+### 5. För företag / sysadmins
+Vanliga ClickFix-kedjor använder lolbins (living-off-the-land).  
+Bra snabba wins:
+- Logga / begränsa PowerShell (särskilt -EncodedCommand / -WindowStyle Hidden)  
+- EDR-regel: larma på explorer.exe → powershell.exe / mshta.exe med suspekt cmdline  
+- Träna användare: “riktig CAPTCHA ber dig aldrig öppna Kör”
+
+### 6. Redan kört kommandot? Paniksteg
+1. Koppla ur nätet direkt  
+2. Kör full scan (helst EDR eller bra AV)  
+3. Byt lösenord från en **annan, ren** dator (särskilt mail, bank, Microsoft-konto etc)
+
+## B. Är domänen legitim? Snabb koll
+
+1. **Stavfel & trix**  
+   micros0ft, micro-soft, rnicrosoft, -secure, -verify, .top, .xyz osv
+
+2. **Vem äger egentligen domänen?**  
+   login-microsoft.com → ägs av microsoft.com?  
+   microsoft.login-verify.net → ägs av net? → nej, bluff
+
+3. **Punycode / IDN-homoglyfer**  
+   xn-- prefixed domän = ofta försök att se ut som apple.com / google.com
+
+4. **HTTPS = inte tillräckligt**  
+   Grönt hänglås betyder bara att certet är utfärdat. Phishingsidor har HTTPS också.
+
+5. **Snabb rykteskoll**  
+   - Slå in domänen i https://transparencyreport.google.com/safe-browsing/search  
+   - Ny domän + “login” / “support” / “update” = hög risk
+
+6. **Bästa vanan**  
+   Lita aldrig på länken.  
+   Skriv adressen själv eller gå via bokmärke.  
+   Googla varumärket → skippa annonser högst upp.
+
+7. **Beteendet avslöjar**  
+   Stress (“konto låses om 3 minuter”),  
+   ber om MFA-kod “för verifiering”,  
+   vill att du kör kommando / ringer nummer / laddar ner “fix”
+
+**Regel #1 att komma ihåg:**  
+Om sidan ber dig köra något i Win+R / Terminal → stäng omedelbart. Det är ClickFix.
+
+Vill du att jag kollar en specifik domän?  
+Klistra bara in **domännamnet** (inget mer) så kör jag checklistan och säger vad som är rött/grönt.
+
 
 
 # Tricks hackarna har använt sig av
