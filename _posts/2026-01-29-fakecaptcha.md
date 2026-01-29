@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "FakeCaptcha Phishing Analysis"
+title: ""
 date: 2026-01-29
-categories: [Malware]
+categories: [blogpost]
 tags: [FakeCaptcha, Phishing, PowerShell]
 render_with_liquid: false
 ---
