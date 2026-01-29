@@ -10,11 +10,9 @@ image: assets/img/phish_cam_1-768x768.jpeg
 <!--more-->
 
 {% raw %}
-## FakeCaptcha Phishing-analys
+## Fakecaptcha
 Denna bloggen kommer innehålla kortfattad information som jag har hittat när det gäller FakeCaptcha Phishing.
 
-
-## FakeCaptcha
 
 FakeCaptcha är en phishing metod som använder captcha på för att lura användarna att själv skriva in illvillig powershell kod i sin dator.
 Hemsidan kommer visa en fake captcha och för att komma vidare till den "riktiga hemsidan" måste man bevisa att man är inte en robot genom att följa instruktionerna.
@@ -75,7 +73,7 @@ Så som bilden visar nedanför gör dom backgrunden till den riktiga hemsidan fa
 
 ![FakeCaptcha](https://www.york.ac.uk/media/it-services/images/about/news/2025/Fake%20captcha,%20full%20browser.png)
 
-## Fake Error
+## FakeError
 
 Fake error är princip samma sak som FakeCaptcha en skillnaden är att den spelar på användarens rädsla att nånting har gått fel.
 För att övertyga användaren mer så låser hemsidan sig själv i fullskärm.
@@ -131,7 +129,11 @@ Bra snabba wins:
 2. Kör full scan (helst EDR eller bra AV)  
 3. Byt lösenord från en **annan, ren** dator (särskilt mail, bank, Microsoft-konto etc)
 
-## Är domänen legitim? Snabb koll
+## B. Är domänen legitim? Snabb koll
+
+## Tricks hackarna har använt sig av
+
+Dom använder även andra metoder för att förhindra att bli påkommna av säkerhets företagen gemom att använda Cloudflare captcha på deras egna illvilliga hemsida, för att sen förhindra web crawlers av säkerhets företagen att hitta deras skadlig kod.
 
 1. **Stavfel & trix**  
    micros0ft, micro-soft, rnicrosoft, -secure, -verify, .top, .xyz osv
@@ -168,18 +170,12 @@ Klistra bara in **domännamnet** (inget mer) så kör jag checklistan och säger
 
 
 
-## Tricks hackarna har använt
-Dom använder även andra metoder för att förhindra att bli påkommna av säkerhets företagen gemom att använda Cloudflare captcha på deras egna illvilliga hemsida, för att sen förhindra web crawlers av säkerhets företagen att hitta deras skadlig kod.
-
-
-
-
-## Konsekvenser
+## Konsekvenserna
 Virusen som blir installerad är oftast Stealers eller RAT som sen leder till konto kappning, bedrägeri eller crypto mining
 
 
 
-## Labbidé
+### Labbidé
 Göra en enkel version av detta med hjälp av attack och defend vm's 
 Öppna calculator på defend vm från attack vm. 
 

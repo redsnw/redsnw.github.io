@@ -148,6 +148,12 @@
         }
       }
 
+      @media (min-width: 1200px) {
+        .post-toc {
+          margin-left: calc((100vw - 1100px) / -2 - 20px);
+        }
+      }
+
       .glossary-term {
         position: relative;
         border-bottom: 1px dotted rgba(0, 255, 156, 0.7);
@@ -284,7 +290,7 @@
           textNode.parentNode.replaceChild(frag, textNode);
         }
 
-        var headings = post.querySelectorAll("h2, h3");
+        var headings = post.querySelectorAll("h2");
         var toc = document.querySelector(".toc-links");
         if (toc && headings.length) {
           headings.forEach(function (h, idx) {
@@ -299,15 +305,13 @@
 
         function wrapSections() {
           if (!headings.length) return;
-          var current = null;
           headings.forEach(function (h) {
             var section = document.createElement("section");
             section.className = "post-section";
             h.parentNode.insertBefore(section, h);
             section.appendChild(h);
-            current = section;
             var next = h.nextSibling;
-            while (next && !(next.nodeType === 1 && /H2|H3/.test(next.nodeName))) {
+            while (next && !(next.nodeType === 1 && /H2/.test(next.nodeName))) {
               var move = next;
               next = next.nextSibling;
               section.appendChild(move);
