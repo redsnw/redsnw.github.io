@@ -1,6 +1,7 @@
 # FakeCaptcha Phishing Analys
 Denna bloggen kommer innehålla kortfattad information som jag har hittat när det gäller FakeCaptcha Phishing.
 
+Dubbell info
 
 # Fakecaptcha 
 
