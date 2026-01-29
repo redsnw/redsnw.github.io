@@ -4,6 +4,7 @@ title: "FakeCaptcha Phishing Analysis"
 date: 2026-01-29
 categories: [Malware]
 tags: [FakeCaptcha, Phishing, PowerShell]
+render_with_liquid: false
 ---
 
 <!--more-->
