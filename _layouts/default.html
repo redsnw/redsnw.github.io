@@ -82,7 +82,7 @@
 
       .post-layout {
         display: grid;
-        grid-template-columns: 220px minmax(0, 1fr);
+        grid-template-columns: 240px minmax(0, 1fr);
         gap: 28px;
         align-items: start;
       }
@@ -150,7 +150,7 @@
 
       @media (min-width: 1200px) {
         .post-toc {
-          margin-left: calc((100vw - 1100px) / -2 - 20px);
+          margin-left: calc((100vw - 1100px) / -2);
         }
       }
 
@@ -290,7 +290,21 @@
           textNode.parentNode.replaceChild(frag, textNode);
         }
 
-        var headings = post.querySelectorAll("h2");
+        var allowedHeadings = [
+          "Fakecaptcha",
+          "FakeError",
+          "Initial Access",
+          "Stoppa FakeCaptcha innan det händer",
+          "B. Är domänen legitim? Snabb koll",
+          "Tricks hackarna har använt sig av",
+          "Konsekvenserna",
+          "Referenser"
+        ];
+
+        var headings = Array.prototype.slice.call(post.querySelectorAll("h2"));
+        headings = headings.filter(function (h) {
+          return allowedHeadings.indexOf(h.textContent.trim()) !== -1;
+        });
         var toc = document.querySelector(".toc-links");
         if (toc && headings.length) {
           headings.forEach(function (h, idx) {
