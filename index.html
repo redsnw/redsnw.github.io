@@ -1,0 +1,39 @@
+---
+layout: default
+title: Blog
+---
+
+<style>
+  .grid { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 24px; }
+  .card { border: 1px solid rgba(255,255,255,.12); border-radius: 14px; overflow: hidden; text-decoration: none; color: inherit; background: rgba(255,255,255,.03); }
+  .card:hover { transform: translateY(-2px); transition: .15s ease; }
+  .thumb { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; background: #111; }
+  .p { padding: 16px; }
+  .meta { opacity: .75; font-size: 0.9rem; margin: 6px 0 10px; }
+  .title { font-size: 1.35rem; margin: 0; line-height: 1.2; }
+  .excerpt { opacity: .85; margin: 10px 0 0; }
+</style>
+
+<h1>blog</h1>
+<p>A collection of {{ site.posts | size }} posts</p>
+
+<div class="grid">
+  {% for post in site.posts %}
+    <a class="card" href="{{ post.url }}">
+      {% if post.image %}
+        <img class="thumb" src="{{ post.image }}" alt="">
+      {% endif %}
+      <div class="p">
+        <div class="meta">
+          {{ post.date | date: "%d %b %Y" }}
+          •
+          {% assign words = post.content | number_of_words %}
+          {% assign mins = words | divided_by: 200 | plus: 1 %}
+          {{ mins }} min read
+        </div>
+        <h2 class="title">{{ post.title }}</h2>
+        <p class="excerpt">{{ post.excerpt | strip_html | truncate: 140 }}</p>
+      </div>
+    </a>
+  {% endfor %}
+</div>
