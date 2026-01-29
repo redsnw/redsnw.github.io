@@ -20,6 +20,8 @@ Denna bloggen kommer innehålla kortfattad information som jag har hittat när d
 FakeCaptcha är en phishing metod som använder captcha på för att lura användarna att själv skriva in illvillig powershell kod i sin dator.
 Hemsidan kommer visa en fake captcha och för att komma vidare till den "riktiga hemsidan" måste man bevisa att man är inte en robot genom att följa instruktionerna.
 
+![Fakecaptchaps1](https://www.trendmicro.com/content/dam/trendmicro/global/en/research/25/e/unmasking-fake-captcha-cases-in-mxdr-investigations/Fig-10.png)
+
 Instruktionerna
 1. WIN + R            -- Öppnar Run boxen i Windows
 2. CTRL + V           -- Klistrar in en illvillig powershell kod i run boxen
