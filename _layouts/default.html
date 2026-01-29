@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ page.title }} | {{ site.title }}</title>
+    {% if site.description %}
+    <meta name="description" content="{{ site.description }}" />
+    {% endif %}
+    <style>
+      :root {
+        --bg: #0b0e11;
+        --fg: #e6e6e6;
+        --muted: rgba(255,255,255,.65);
+        --nav-bg: #111519;
+        --accent: #00ff9c;
+        --border: rgba(255,255,255,.08);
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Courier New", Courier, monospace;
+        background: var(--bg);
+        color: var(--fg);
+        line-height: 1.6;
+      }
+
+      a { color: inherit; }
+
+      .topbar {
+        background: var(--nav-bg);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .topbar-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .brand {
+        font-size: 1.4rem;
+        font-weight: 700;
+        letter-spacing: .5px;
+        text-decoration: none;
+      }
+
+      .nav {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+        font-weight: 600;
+      }
+
+      .nav a {
+        text-decoration: none;
+        color: var(--muted);
+        padding: 6px 8px;
+        border-radius: 8px;
+        transition: color .15s ease, background .15s ease;
+      }
+
+      .nav a:hover {
+        color: var(--fg);
+        background: rgba(255,255,255,.06);
+      }
+
+      .nav a.active {
+        color: var(--accent);
+      }
+
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 24px 20px 60px;
+      }
+
+      @media (max-width: 640px) {
+        .topbar-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        <nav class="nav">
+          <a href="{{ '/' | relative_url }}" class="{% if page.url == '/' %}active{% endif %}">Home</a>
+          <a href="{{ '/malware/' | relative_url }}" class="{% if page.url contains '/malware' %}active{% endif %}">Malware</a>
+          <a href="{{ '/detection-engineering/' | relative_url }}" class="{% if page.url contains '/detection-engineering' %}active{% endif %}">Detection Engineering</a>
+          <a href="{{ '/about/' | relative_url }}" class="{% if page.url contains '/about' %}active{% endif %}">About</a>
+        </nav>
+      </div>
+    </header>
+    <main class="wrap">
+      {{ content }}
+    </main>
+  </body>
+</html>
