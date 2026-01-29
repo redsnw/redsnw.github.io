@@ -129,7 +129,7 @@ Bra snabba wins:
 2. Kör full scan (helst EDR eller bra AV)  
 3. Byt lösenord från en **annan, ren** dator (särskilt mail, bank, Microsoft-konto etc)
 
-## B. Är domänen legitim? Snabb koll
+## Är domänen legitim? Snabb koll
 
 ## Tricks hackarna har använt sig av
 
