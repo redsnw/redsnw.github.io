@@ -22,7 +22,7 @@ Instruktionerna
 3. Enter              -- För att köra koden i run
 
 
-Om du undrar hur koden blev kopierad i första hand är de för att användaren tryckte "Im not a robot" eller "Verify" först, innan instruktionerna dök upp.
+Om du undrar hur koden blev kopierad i första hand är de för att användaren tryckte "Im not a robot" eller "Verify" först, innan instruktionerna dök upp..
 Den Kopieras i smyg utan användarens kunskap.
 
 Som bilden visar nedanför försöker hackarna ge användarna en falsk trygghet genom att visa bara en del av powershell koden som ser ut och vara äkta.
