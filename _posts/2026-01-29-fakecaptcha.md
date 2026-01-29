@@ -116,7 +116,8 @@ FakeCaptcha kommer oftast via malvertising, phishing eller hackade sajter.
 Gör det svårare:
 - Håll webbläsare + OS uppdaterade  
 - Använd uBlock Origin / reklamblockerare  
-- Var allergisk mot “gratis filmer”, torrent-sidor, “PC support”-popups
+- Var allergisk mot “gratis filmer”, torrent-sidor, “PC support”-popups, exempel på bilden nedanför.
+![FakeErrorBild](https://www.tripwire.com/sites/default/files/tech-support-scam-message-box-2.png)
 
 ### 5. För företag / sysadmins
 Vanliga FakeCaptcha-kedjor använder lolbins (living-off-the-land).  
