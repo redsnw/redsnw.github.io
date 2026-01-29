@@ -8,6 +8,8 @@ render_with_liquid: false
 ---
 
 <!--more-->
+
+{% raw %}
 # FakeCaptcha Phishing Analys
 Denna bloggen kommer innehålla kortfattad information som jag har hittat när det gäller FakeCaptcha Phishing.
 
@@ -130,3 +132,4 @@ https://thehackernews.com/2025/08/clickfix-malware-campaign-exploits.html -- bra
 
 https://unit42.paloaltonetworks.com/preventing-clickfix-attack-vecto
 ````
+{% endraw %}
