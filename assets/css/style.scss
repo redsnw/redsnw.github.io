@@ -1,0 +1,11 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* Hide date + title + "by" header on post pages */
+article.post > header,
+.post > header,
+header.post-header {
+  display: none !important;
+}
