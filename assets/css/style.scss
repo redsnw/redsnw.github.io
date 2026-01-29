@@ -3,9 +3,12 @@
 
 @import "{{ site.theme }}";
 
-/* Hide date + title + "by" header on post pages */
-article.post > header,
-.post > header,
-header.post-header {
+/* Hide post date + "by" (author) on post pages */
+.post time,
+.post .byline,
+.post .post-meta,
+.post header time,
+.post header p.meta,
+.post header .meta {
   display: none !important;
 }
