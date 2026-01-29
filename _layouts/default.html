@@ -80,6 +80,74 @@
         padding: 24px 20px 60px;
       }
 
+      .post-layout {
+        display: grid;
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 28px;
+        align-items: start;
+      }
+
+      .post-toc {
+        position: sticky;
+        top: 20px;
+        align-self: start;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 14px 12px;
+        background: rgba(255,255,255,.02);
+      }
+
+      .toc-title {
+        font-weight: 700;
+        margin-bottom: 8px;
+        font-size: 0.95rem;
+        letter-spacing: .3px;
+      }
+
+      .toc-links {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        font-size: 0.92rem;
+      }
+
+      .toc-links a {
+        text-decoration: none;
+        color: var(--muted);
+        padding: 4px 6px;
+        border-radius: 6px;
+      }
+
+      .toc-links a:hover {
+        color: var(--fg);
+        background: rgba(255,255,255,.06);
+      }
+
+      .toc-links a.active {
+        color: var(--accent);
+      }
+
+      .post-section {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 16px 16px 8px;
+        margin: 18px 0 22px;
+        background: rgba(255,255,255,.02);
+      }
+
+      .post-section > :first-child {
+        margin-top: 0;
+      }
+
+      @media (max-width: 900px) {
+        .post-layout {
+          grid-template-columns: 1fr;
+        }
+        .post-toc {
+          position: static;
+        }
+      }
+
       .glossary-term {
         position: relative;
         border-bottom: 1px dotted rgba(0, 255, 156, 0.7);
@@ -157,11 +225,9 @@
           { term: "LOLBins", def: "Living-off-the-land verktyg i OS som missbrukas av angripare.", pattern: "\\bLOLBins\\b" },
           { term: "-EncodedCommand", def: "PowerShell-flagga for att kora kod i kodad form.", pattern: "-EncodedCommand" },
           { term: "-WindowStyle Hidden", def: "PowerShell-flagga som korer kommandon dolt.", pattern: "-WindowStyle\\s+Hidden" },
-          { term: "AV", def: "Antivirus som upptacker och tar bort skadlig kod.", pattern: "\\bAV\\b" },
           { term: "MFA", def: "Multifaktorautentisering, extra steg ut over losenord.", pattern: "\\bMFA\\b" },
           { term: "Punycode", def: "Kodning som kan gora falska domaner svarta att se.", pattern: "\\bPunycode\\b" },
           { term: "IDN", def: "Internationalized Domain Names, kan utnyttjas for homoglyfer.", pattern: "\\bIDN\\b" },
-          { term: "HTTPS", def: "Krypterad anslutning mellan webblasare och server.", pattern: "\\bHTTPS\\b" },
           { term: "stealer", def: "Malware som stal inloggningar och data.", pattern: "\\bstealer(s)?\\b" },
           { term: "RAT", def: "Remote Access Trojan, ger angriparen fjarrkontroll.", pattern: "\\bRAT\\b" },
           { term: "malware", def: "Skadlig kod som infekterar system.", pattern: "\\bmalware\\b" },
@@ -218,6 +284,53 @@
           textNode.parentNode.replaceChild(frag, textNode);
         }
 
+        var headings = post.querySelectorAll("h2, h3");
+        var toc = document.querySelector(".toc-links");
+        if (toc && headings.length) {
+          headings.forEach(function (h, idx) {
+            if (!h.id) h.id = "section-" + (idx + 1);
+            var a = document.createElement("a");
+            a.href = "#" + h.id;
+            a.textContent = h.textContent;
+            a.dataset.target = h.id;
+            toc.appendChild(a);
+          });
+        }
+
+        function wrapSections() {
+          if (!headings.length) return;
+          var current = null;
+          headings.forEach(function (h) {
+            var section = document.createElement("section");
+            section.className = "post-section";
+            h.parentNode.insertBefore(section, h);
+            section.appendChild(h);
+            current = section;
+            var next = h.nextSibling;
+            while (next && !(next.nodeType === 1 && /H2|H3/.test(next.nodeName))) {
+              var move = next;
+              next = next.nextSibling;
+              section.appendChild(move);
+            }
+          });
+        }
+
+        wrapSections();
+
+        if (toc && headings.length) {
+          var tocLinks = toc.querySelectorAll("a");
+          var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              var id = entry.target.id;
+              tocLinks.forEach(function (l) {
+                l.classList.toggle("active", l.dataset.target === id);
+              });
+            });
+          }, { rootMargin: "-30% 0px -60% 0px", threshold: 0.1 });
+          headings.forEach(function (h) { observer.observe(h); });
+        }
+
         var walker = document.createTreeWalker(
           post,
           NodeFilter.SHOW_TEXT,
@@ -227,7 +340,7 @@
               var parent = node.parentNode;
               if (!parent) return NodeFilter.FILTER_REJECT;
               var tag = parent.nodeName;
-              if (/(SCRIPT|STYLE|CODE|PRE|A|TEXTAREA|KBD)/.test(tag)) return NodeFilter.FILTER_REJECT;
+              if (/(SCRIPT|STYLE|CODE|PRE|A|TEXTAREA|KBD|H1|H2|H3|H4|H5|H6)/.test(tag)) return NodeFilter.FILTER_REJECT;
               return NodeFilter.FILTER_ACCEPT;
             }
           }
