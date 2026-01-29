@@ -131,16 +131,12 @@ Bra snabba wins:
 
 ## Är domänen legitim? Snabb koll
 
-## Tricks hackarna har använt sig av
-
-Dom använder även andra metoder för att förhindra att bli påkommna av säkerhets företagen gemom att använda Cloudflare captcha på deras egna illvilliga hemsida, för att sen förhindra web crawlers av säkerhets företagen att hitta deras skadlig kod.
-
 1. **Stavfel & trix**  
    micros0ft, micro-soft, rnicrosoft, -secure, -verify, .top, .xyz osv
 
 2. **Vem äger egentligen domänen?**  
-   login-microsoft.com â†’ ägs av microsoft.com?  
-   microsoft.login-verify.net â†’ ägs av net? â†’ nej, bluff
+   login-microsoft.com → ägs av microsoft.com?  
+   microsoft.login-verify.net → ägs av net? → nej, bluff
 
 3. **Punycode / IDN-homoglyfer**  
    xn-- prefixed domän = ofta försök att se ut som apple.com / google.com
@@ -150,23 +146,27 @@ Dom använder även andra metoder för att förhindra att bli påkommna av säke
 
 5. **Snabb rykteskoll**  
    - Slå in domänen i https://transparencyreport.google.com/safe-browsing/search  
-   - Ny domän + â€œloginâ€ / â€œsupportâ€ / â€œupdateâ€ = hög risk
+   - Ny domän + “login” / “support” / “update” = hög risk
 
 6. **Bästa vanan**  
    Lita aldrig på länken.  
    Skriv adressen själv eller gå via bokmärke.  
-   Googla varumärket â†’ skippa annonser högst upp.
+   Googla varumärket → skippa annonser högst upp.
 
 7. **Beteendet avslöjar**  
-   Stress (â€œkonto låses om 3 minuterâ€),  
-   ber om MFA-kod â€œför verifieringâ€,  
-   vill att du kör kommando / ringer nummer / laddar ner â€œfixâ€
+   Stress (“konto låses om 3 minuter”),  
+   ber om MFA-kod “för verifiering”,  
+   vill att du kör kommando / ringer nummer / laddar ner “fix”
 
 **Regel #1 att komma ihåg:**  
-Om sidan ber dig köra något i Win+R / Terminal â†’ stäng omedelbart. Det är FakeCaptcha.
+Om sidan ber dig köra något i Win+R / Terminal → stäng omedelbart. Det är FakeCaptcha.
 
 Vill du att jag kollar en specifik domän?  
 Klistra bara in **domännamnet** (inget mer) så kör jag checklistan och säger vad som är rött/grönt.
+
+## Tricks hackarna har använt sig av
+
+Dom använder även andra metoder för att förhindra att bli påkommna av säkerhets företagen gemom att använda Cloudflare captcha på deras egna illvilliga hemsida, för att sen förhindra web crawlers av säkerhets företagen att hitta deras skadlig kod.
 
 
 
