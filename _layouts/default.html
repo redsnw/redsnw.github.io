@@ -217,29 +217,29 @@
         if (!post) return;
 
         var glossary = [
-          { term: "FakeCaptcha", def: "En phishingmetod som lurar användaren att själv köra skadlig kod via falsk CAPTCHA.", pattern: "\\bFakeCaptcha\\b", anchor: "term-fakecaptcha" },
-          { term: "phishing", def: "Angrepp där angripare lurar användare att göra något farligt eller lämna ut info.", pattern: "\\bphishing\\b", anchor: "term-phishing" },
-          { term: "CAPTCHA", def: "Test som ska skilja människor från botar, ofta missbrukat i bluffar.", pattern: "\\bCAPTCHA\\b", anchor: "term-captcha-recaptcha" },
-          { term: "reCAPTCHA", def: "Test som ska skilja människor från botar, ofta missbrukat i bluffar.", pattern: "\\breCAPTCHA\\b", anchor: "term-captcha-recaptcha" },
-          { term: "PowerShell", def: "Windows-kommandoskal och skriptspråk som ofta utnyttjas i attacker.", pattern: "\\bPowerShell\\b", anchor: "term-powershell" },
-          { term: "mshta.exe", def: "Windows-program som kan köra HTML/skript och används ibland som \"living-off-the-land\".", pattern: "mshta\\.exe", anchor: "term-mshta" },
-          { term: "Win+R", def: "Windows‑dialog för att köra kommandon snabbt.", pattern: "Win\\+R", anchor: "term-run" },
-          { term: "Run", def: "Windows‑dialog för att köra kommandon snabbt.", pattern: "\\bRun\\b", anchor: "term-run" },
-          { term: "clipboard", def: "Temporärt minne för kopierad text, som kan fyllas med skadliga kommandon.", pattern: "\\bclipboard\\b", anchor: "term-clipboard" },
-          { term: "Malvertising", def: "Skadlig annonsering som leder till bluff- eller malware-sidor.", pattern: "\\bmalvertising\\b", anchor: "term-malvertising" },
-          { term: "SEO-poisoning", def: "Manipulation av sökresultat för att få skadliga sidor att ranka högt.", pattern: "SEO-?poisoning", anchor: "term-seo-poisoning" },
-          { term: "redirects", def: "Omdirigeringar som skickar dig vidare till en annan, ofta skadlig, sida.", pattern: "\\bredirects\\b", anchor: "term-redirects" },
-          { term: "EDR", def: "Endpoint Detection and Response, verktyg som upptäcker och stoppar attacker på klienter.", pattern: "\\bEDR\\b", anchor: "term-edr" },
-          { term: "LOLBins", def: "\"Living-off-the-land\"‑verktyg i OS som missbrukas av angripare.", pattern: "\\bLOLBins\\b", anchor: "term-lolbins" },
-          { term: "-EncodedCommand", def: "PowerShell‑flagga för att köra kod i kodad form, vanligt i attacker.", pattern: "-EncodedCommand", anchor: "term-encodedcommand" },
-          { term: "-WindowStyle Hidden", def: "PowerShell‑flagga som kör kommandon dolt utan fönster.", pattern: "-WindowStyle\\s+Hidden", anchor: "term-windowstyle-hidden" },
-          { term: "MFA", def: "Multifaktorautentisering, extra steg ut över lösenord.", pattern: "\\bMFA\\b", anchor: "term-mfa" },
-          { term: "Punycode", def: "Tekniker som gör falska domäner svåra att skilja från riktiga.", pattern: "\\bPunycode\\b", anchor: "term-punycode-idn" },
-          { term: "IDN", def: "Tekniker som gör falska domäner svåra att skilja från riktiga.", pattern: "\\bIDN\\b", anchor: "term-punycode-idn" },
-          { term: "stealer", def: "Malware som stjäl inloggningar, cookies eller annan data.", pattern: "\\bstealer(s)?\\b", anchor: "term-stealer" },
-          { term: "RAT", def: "Remote Access Trojan, ger angriparen fjärrkontroll över datorn.", pattern: "\\bRAT\\b", anchor: "term-rat" },
-          { term: "malware", def: "Skadlig kod som infekterar system.", pattern: "\\bmalware\\b", anchor: "term-malware" },
-          { term: "crypto mining", def: "Missbruk av din dator för att utvinna kryptovaluta.", pattern: "crypto\\s+mining", anchor: "term-crypto-mining" }
+          { term: "FakeCaptcha", def: "En phishingmetod som lurar användaren att själv köra skadlig kod via falsk CAPTCHA.", pattern: "\\bFakeCaptcha\\b" },
+          { term: "phishing", def: "Angrepp där angripare lurar användare att göra något farligt eller lämna ut info.", pattern: "\\bphishing\\b" },
+          { term: "CAPTCHA", def: "Test som ska skilja människor från botar, ofta missbrukat i bluffar.", pattern: "\\bCAPTCHA\\b" },
+          { term: "reCAPTCHA", def: "Test som ska skilja människor från botar, ofta missbrukat i bluffar.", pattern: "\\breCAPTCHA\\b" },
+          { term: "PowerShell", def: "Windows-kommandoskal och skriptspråk som ofta utnyttjas i attacker.", pattern: "\\bPowerShell\\b" },
+          { term: "mshta.exe", def: "Windows-program som kan köra HTML/skript och används ibland som \"living-off-the-land\".", pattern: "mshta\\.exe" },
+          { term: "Win+R", def: "Windows‑dialog för att köra kommandon snabbt.", pattern: "Win\\+R" },
+          { term: "Run", def: "Windows‑dialog för att köra kommandon snabbt.", pattern: "\\bRun\\b" },
+          { term: "clipboard", def: "Temporärt minne för kopierad text, som kan fyllas med skadliga kommandon.", pattern: "\\bclipboard\\b" },
+          { term: "Malvertising", def: "Skadlig annonsering som leder till bluff- eller malware-sidor.", pattern: "\\bmalvertising\\b" },
+          { term: "SEO-poisoning", def: "Manipulation av sökresultat för att få skadliga sidor att ranka högt.", pattern: "SEO-?poisoning" },
+          { term: "redirects", def: "Omdirigeringar som skickar dig vidare till en annan, ofta skadlig, sida.", pattern: "\\bredirects\\b" },
+          { term: "EDR", def: "Endpoint Detection and Response, verktyg som upptäcker och stoppar attacker på klienter.", pattern: "\\bEDR\\b" },
+          { term: "LOLBins", def: "\"Living-off-the-land\"‑verktyg i OS som missbrukas av angripare.", pattern: "\\bLOLBins\\b" },
+          { term: "-EncodedCommand", def: "PowerShell‑flagga för att köra kod i kodad form, vanligt i attacker.", pattern: "-EncodedCommand" },
+          { term: "-WindowStyle Hidden", def: "PowerShell‑flagga som kör kommandon dolt utan fönster.", pattern: "-WindowStyle\\s+Hidden" },
+          { term: "MFA", def: "Multifaktorautentisering, extra steg ut över lösenord.", pattern: "\\bMFA\\b" },
+          { term: "Punycode", def: "Tekniker som gör falska domäner svåra att skilja från riktiga.", pattern: "\\bPunycode\\b" },
+          { term: "IDN", def: "Tekniker som gör falska domäner svåra att skilja från riktiga.", pattern: "\\bIDN\\b" },
+          { term: "stealer", def: "Malware som stjäl inloggningar, cookies eller annan data.", pattern: "\\bstealer(s)?\\b" },
+          { term: "RAT", def: "Remote Access Trojan, ger angriparen fjärrkontroll över datorn.", pattern: "\\bRAT\\b" },
+          { term: "malware", def: "Skadlig kod som infekterar system.", pattern: "\\bmalware\\b" },
+          { term: "crypto mining", def: "Missbruk av din dator för att utvinna kryptovaluta.", pattern: "crypto\\s+mining" }
         ];
 
         var patterns = glossary.map(function (g) { return g.pattern; });
@@ -275,12 +275,11 @@
             }
 
             if (entry) {
-              var link = document.createElement("a");
-              link.className = "glossary-term";
-              link.setAttribute("data-tip", entry.def);
-              link.href = "{{ '/termlista/' | relative_url }}#" + entry.anchor;
-              link.textContent = match;
-              frag.appendChild(link);
+              var span = document.createElement("span");
+              span.className = "glossary-term";
+              span.setAttribute("data-tip", entry.def);
+              span.textContent = match;
+              frag.appendChild(span);
             } else {
               frag.appendChild(document.createTextNode(match));
             }
