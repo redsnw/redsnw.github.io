@@ -18,27 +18,6 @@ title: Termlista
     background: rgba(255,255,255,.02);
   }
 
-  .term-card summary {
-    list-style: none;
-    cursor: pointer;
-    font-weight: 700;
-    outline: none;
-  }
-
-  .term-card summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .term-card summary::after {
-    content: "+";
-    float: right;
-    opacity: .7;
-  }
-
-  .term-card[open] summary::after {
-    content: "–";
-  }
-
   .term-card dt {
     font-weight: 700;
     margin-bottom: 6px;
@@ -54,158 +33,158 @@ title: Termlista
 <p>Termer från blogginlägget "FakeCaptcha" med korta förklaringar.</p>
 
 <div class="terms-grid">
-  <details class="term-card">
-    <summary>FakeCaptcha</summary>
+  <dl class="term-card">
+    <dt>FakeCaptcha</dt>
     <dd>En phishingmetod som lurar användaren att själv köra skadlig kod via falsk CAPTCHA.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>Phishing</summary>
+  <dl class="term-card">
+    <dt>Phishing</dt>
     <dd>Angrepp där angripare lurar användare att göra något farligt eller lämna ut info.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>CAPTCHA / reCAPTCHA</summary>
+  <dl class="term-card">
+    <dt>CAPTCHA / reCAPTCHA</dt>
     <dd>Test som ska skilja människor från botar, ofta missbrukat i bluffar.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>PowerShell</summary>
+  <dl class="term-card">
+    <dt>PowerShell</dt>
     <dd>Windows-kommandoskal och skriptspråk som ofta utnyttjas i attacker.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>mshta.exe</summary>
+  <dl class="term-card">
+    <dt>mshta.exe</dt>
     <dd>Windows-program som kan köra HTML/skript och används ibland som "living-off-the-land".</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>Run (Win+R)</summary>
+  <dl class="term-card">
+    <dt>Run (Win+R)</dt>
     <dd>Windows‑dialog för att köra kommandon snabbt.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>Clipboard (urklipp)</summary>
+  <dl class="term-card">
+    <dt>Clipboard (urklipp)</dt>
     <dd>Temporärt minne för kopierad text, som kan fyllas med skadliga kommandon.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>Malvertising</summary>
+  <dl class="term-card">
+    <dt>Malvertising</dt>
     <dd>Skadlig annonsering som leder till bluff- eller malware-sidor.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>SEO-poisoning</summary>
+  <dl class="term-card">
+    <dt>SEO-poisoning</dt>
     <dd>Manipulation av sökresultat för att få skadliga sidor att ranka högt.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>Redirects</summary>
+  <dl class="term-card">
+    <dt>Redirects</dt>
     <dd>Omdirigeringar som skickar dig vidare till en annan, ofta skadlig, sida.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>Fake tech support</summary>
+  <dl class="term-card">
+    <dt>Fake tech support</dt>
     <dd>Bluffsupport som får dig att ringa eller göra farliga instruktioner.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>EDR</summary>
+  <dl class="term-card">
+    <dt>EDR</dt>
     <dd>Endpoint Detection and Response, verktyg som upptäcker och stoppar attacker på klienter.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>Sysadmin</summary>
+  <dl class="term-card">
+    <dt>Sysadmin</dt>
     <dd>Systemadministratör som driftar och skyddar IT‑miljöer.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>LOLBins</summary>
+  <dl class="term-card">
+    <dt>LOLBins</dt>
     <dd>"Living-off-the-land"‑verktyg i OS som missbrukas av angripare.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>-EncodedCommand</summary>
+  <dl class="term-card">
+    <dt>-EncodedCommand</dt>
     <dd>PowerShell‑flagga för att köra kod i kodad form, vanligt i attacker.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>-WindowStyle Hidden</summary>
+  <dl class="term-card">
+    <dt>-WindowStyle Hidden</dt>
     <dd>PowerShell‑flagga som kör kommandon dolt utan fönster.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>explorer.exe / powershell.exe</summary>
+  <dl class="term-card">
+    <dt>explorer.exe / powershell.exe</dt>
     <dd>Windows‑processer som ofta ses i misstänkta kedjor.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>Command line (cmdline)</summary>
+  <dl class="term-card">
+    <dt>Command line (cmdline)</dt>
     <dd>Textbaserade kommandon som styr program och processer.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>AV (antivirus)</summary>
+  <dl class="term-card">
+    <dt>AV (antivirus)</dt>
     <dd>Säkerhetsprogram som upptäcker och tar bort skadlig kod.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>MFA</summary>
+  <dl class="term-card">
+    <dt>MFA</dt>
     <dd>Multifaktorautentisering, extra steg ut över lösenord.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>Domain (doman)</summary>
+  <dl class="term-card">
+    <dt>Domain (doman)</dt>
     <dd>Namn på en webbplats, t.ex. example.com.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>Punycode / IDN-homoglyfer</summary>
+  <dl class="term-card">
+    <dt>Punycode / IDN-homoglyfer</dt>
     <dd>Tekniker som gör falska domäner svåra att skilja från riktiga.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>HTTPS</summary>
+  <dl class="term-card">
+    <dt>HTTPS</dt>
     <dd>Krypterad anslutning mellan webbläsare och server.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>Certificate (certifikat)</summary>
+  <dl class="term-card">
+    <dt>Certificate (certifikat)</dt>
     <dd>Digitalt bevis som ligger bakom HTTPS‑låset i webbläsaren.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>Safe Browsing</summary>
+  <dl class="term-card">
+    <dt>Safe Browsing</dt>
     <dd>Tjänst som varnar för kända skadliga webbsidor.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>Stealer</summary>
+  <dl class="term-card">
+    <dt>Stealer</dt>
     <dd>Malware som stjäl inloggningar, cookies eller annan data.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>RAT</summary>
+  <dl class="term-card">
+    <dt>RAT</dt>
     <dd>Remote Access Trojan, ger angriparen fjärrkontroll över datorn.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>Crypto mining</summary>
+  <dl class="term-card">
+    <dt>Crypto mining</dt>
     <dd>Missbruk av din dator för att utvinna kryptovaluta.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>Cloudflare CAPTCHA</summary>
+  <dl class="term-card">
+    <dt>Cloudflare CAPTCHA</dt>
     <dd>CAPTCHA‑tjänst som ibland missbrukas på bluff‑sidor.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>Web crawler</summary>
+  <dl class="term-card">
+    <dt>Web crawler</dt>
     <dd>Automatiskt program som söker igenom webben, ofta blockerat av angripare.</dd>
-  </details>
+  </dl>
 
-  <details class="term-card">
-    <summary>Malware</summary>
+  <dl class="term-card">
+    <dt>Malware</dt>
     <dd>Skadlig kod som infekterar system.</dd>
-  </details>
+  </dl>
 </div>
