@@ -41,13 +41,15 @@ title: Termlista
 <h1>Termlista</h1>
 
 <div class="terms-grid">
-  {% assign terms_sorted = site.data.terms | sort %}
+  {% assign terms_array = "" | split: "" %}
+  {% for pair in site.data.terms %}
+    {% assign terms_array = terms_array | push: pair[1] %}
+  {% endfor %}
+  {% assign terms_sorted = terms_array | sort: "term" %}
   {% for item in terms_sorted %}
-    {% assign term_value = item.term | default: item[1].term %}
-    {% assign def_value = item.def | default: item[1].def %}
-    <dl class="term-card" id="term-{{ term_value | slugify }}">
-      <dt>{{ term_value }}</dt>
-      <dd>{{ def_value }}</dd>
+    <dl class="term-card" id="term-{{ item.term | slugify }}">
+      <dt>{{ item.term }}</dt>
+      <dd>{{ item.def }}</dd>
     </dl>
   {% endfor %}
 </div>
