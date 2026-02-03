@@ -275,11 +275,12 @@
             }
 
             if (entry) {
-              var span = document.createElement("span");
-              span.className = "glossary-term";
-              span.setAttribute("data-tip", entry.def);
-              span.textContent = match;
-              frag.appendChild(span);
+              var link = document.createElement("a");
+              link.className = "glossary-term";
+              link.setAttribute("data-tip", entry.def);
+              link.href = "{{ '/termlista/' | relative_url }}#term-" + match.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+              link.textContent = match;
+              frag.appendChild(link);
             } else {
               frag.appendChild(document.createTextNode(match));
             }
