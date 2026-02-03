@@ -27,6 +27,18 @@ title: Termlista
     break-inside: avoid;
   }
 
+  .term-card:target {
+    border-color: #00ff9c;
+    box-shadow: 0 0 0 2px rgba(0,255,156,.25);
+    animation: term-pulse 1.4s ease-in-out 2;
+  }
+
+  @keyframes term-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0,255,156,.45); }
+    70% { box-shadow: 0 0 0 10px rgba(0,255,156,0); }
+    100% { box-shadow: 0 0 0 0 rgba(0,255,156,0); }
+  }
+
   .term-card dt {
     font-weight: 700;
     margin-bottom: 6px;
@@ -50,3 +62,16 @@ title: Termlista
     </dl>
   {% endfor %}
 </div>
+
+<script>
+  (function () {
+    var hash = window.location.hash;
+    if (!hash) return;
+    var target = document.querySelector(hash);
+    if (!target) return;
+    // Clear the highlight after a short pulse window
+    setTimeout(function () {
+      history.replaceState(null, document.title, window.location.pathname + window.location.search);
+    }, 3200);
+  })();
+</script>
