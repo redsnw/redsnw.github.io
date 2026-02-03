@@ -40,6 +40,8 @@ title: Termlista
 
 <h1>Termlista</h1>
 
+<p>DEBUG: terms count = {{ site.data.terms | size }}</p>
+
 <div class="terms-grid">
   {% assign terms_sorted = site.data.terms | sort %}
   {% for item in terms_sorted %}
