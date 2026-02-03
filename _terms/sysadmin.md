@@ -1,4 +1,0 @@
-﻿---
-term: "Sysadmin"
-def: "Systemadministratör som driftar och skyddar IT‑miljöer."
----

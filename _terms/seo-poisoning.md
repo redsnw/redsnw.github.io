@@ -1,4 +1,0 @@
-﻿---
-term: "SEO-poisoning"
-def: "Manipulation av sökresultat för att få skadliga sidor att ranka högt."
----

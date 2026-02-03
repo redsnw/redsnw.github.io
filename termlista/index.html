@@ -41,11 +41,11 @@ title: Termlista
 <h1>Termlista</h1>
 
 <div class="terms-grid">
-  {% assign terms_sorted = site.documents | where: "collection","terms" | sort: "term" %}
+  {% assign terms_sorted = site.data.terms | sort %}
   {% for item in terms_sorted %}
-    <dl class="term-card" id="term-{{ item.data.term | slugify }}">
-      <dt>{{ item.data.term }}</dt>
-      <dd>{{ item.data.def }}</dd>
+    <dl class="term-card" id="term-{{ item[1].term | slugify }}">
+      <dt>{{ item[1].term }}</dt>
+      <dd>{{ item[1].def }}</dd>
     </dl>
   {% endfor %}
 </div>

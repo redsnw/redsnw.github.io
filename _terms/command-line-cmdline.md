@@ -1,4 +1,0 @@
-﻿---
-term: "Command line (cmdline)"
-def: "Textbaserade kommandon som styr program och processer."
----
