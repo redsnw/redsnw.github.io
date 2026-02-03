@@ -1,4 +1,0 @@
-﻿---
-term: "AV (antivirus)"
-def: "Säkerhetsprogram som upptäcker och tar bort skadlig kod."
----

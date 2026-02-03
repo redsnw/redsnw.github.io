@@ -1,4 +1,0 @@
-﻿---
-term: "Run (Win+R)"
-def: "Windows‑dialog för att köra kommandon snabbt."
----

@@ -1,4 +1,0 @@
-﻿---
-term: "Stealer"
-def: "Malware som stjäl inloggningar, cookies eller annan data."
----
