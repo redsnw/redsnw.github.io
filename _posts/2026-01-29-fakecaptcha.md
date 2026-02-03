@@ -19,6 +19,11 @@ Hemsidan visar en falsk CAPTCHA och för att komma vidare till den "riktiga hems
 
 ![Fakecaptchaps1](https://www.trendmicro.com/content/dam/trendmicro/global/en/research/25/e/unmasking-fake-captcha-cases-in-mxdr-investigations/Fig-10.png)
 
+<video controls width="100%" preload="metadata">
+  <source src="{{ '/assets/video/Fakecaptcha.mp4' | relative_url }}" type="video/mp4">
+  Din webbläsare stödjer inte video.
+</video>
+
 Instruktionerna
 1. WIN + R            -- Öppnar Run‑rutan i Windows
 2. CTRL + V           -- Klistrar in en illvillig PowerShell‑kod i Run‑rutan
@@ -178,6 +183,11 @@ Virusen som installeras är oftast stealers eller RAT som sedan leder till konto
 ### Labbidé
 Göra en enkel version av detta med hjälp av attack‑ och defend‑VM:er. 
 Öppna Kalkylatorn på defend‑VM från attack‑VM. 
+
+<video controls width="100%" style="max-width: 900px; border-radius: 10px;">
+  <source src="{{ '/assets/video/Fakecaptcha.mp4' | relative_url }}" type="video/mp4" />
+  Din webbläsare stödjer inte video-taggen.
+</video>
 
 
 
