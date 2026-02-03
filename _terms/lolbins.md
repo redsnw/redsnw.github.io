@@ -1,0 +1,4 @@
+﻿---
+term: "LOLBins"
+def: ""Living-off-the-land"‑verktyg i OS som missbrukas av angripare."
+---

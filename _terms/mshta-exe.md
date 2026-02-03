@@ -1,0 +1,4 @@
+﻿---
+term: "mshta.exe"
+def: "Windows-program som kan köra HTML/skript och används ibland som "living-off-the-land"."
+---

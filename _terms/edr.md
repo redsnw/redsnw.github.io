@@ -1,0 +1,4 @@
+﻿---
+term: "EDR"
+def: "Endpoint Detection and Response, verktyg som upptäcker och stoppar attacker på klienter."
+---

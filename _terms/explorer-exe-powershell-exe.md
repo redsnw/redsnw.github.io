@@ -1,0 +1,4 @@
+﻿---
+term: "explorer.exe / powershell.exe"
+def: "Windows‑processer som ofta ses i misstänkta kedjor."
+---
