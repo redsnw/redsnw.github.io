@@ -41,10 +41,9 @@ title: Termlista
 <h1>Termlista</h1>
 
 <div class="terms-grid">
-  {% for pair in site.data.terms %}
-    {% assign data = pair | last %}
-    {% assign term_value = data.term %}
-    {% assign def_value = data.def %}
+  {% for item in site.data.terms %}
+    {% assign term_value = item.term | default: item[1].term | default: item[0] %}
+    {% assign def_value = item.definition | default: item.def | default: item[1].definition | default: item[1].def | default: item[1] %}
     <dl class="term-card" id="term-{{ term_value | slugify }}">
       <dt>{{ term_value }}</dt>
       <dd>{{ def_value }}</dd>
