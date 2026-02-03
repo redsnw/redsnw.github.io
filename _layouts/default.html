@@ -249,6 +249,15 @@
           byTerm[g.term.toLowerCase()] = g;
         });
 
+        function slugifyTerm(s) {
+          return s
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-+|-+$/g, "");
+        }
+
         function wrapNode(textNode) {
           var text = textNode.nodeValue;
           if (!re.test(text)) return;
@@ -278,7 +287,7 @@
               var link = document.createElement("a");
               link.className = "glossary-term";
               link.setAttribute("data-tip", entry.def);
-              link.href = "{{ '/termlista/' | relative_url }}#term-" + match.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+              link.href = "{{ '/termlista/' | relative_url }}#term-" + slugifyTerm(entry.term);
               link.textContent = match;
               frag.appendChild(link);
             } else {
