@@ -41,15 +41,8 @@ title: Termlista
 <h1>Termlista</h1>
 
 <div class="terms-grid">
-  {% assign terms_array = "" | split: "" %}
-  {% for pair in site.data.terms %}
-    {% assign terms_array = terms_array | push: pair[1] %}
-  {% endfor %}
-  {% assign terms_sorted = terms_array | sort: "term" %}
-  {% for item in terms_sorted %}
-    <dl class="term-card" id="term-{{ item.term | slugify }}">
-      <dt>{{ item.term }}</dt>
-      <dd>{{ item.definition }}</dd>
-    </dl>
-  {% endfor %}
+  <dl class="term-card">
+    <dt>DEBUG terms keys</dt>
+    <dd>{{ site.data.terms | jsonify }}</dd>
+  </dl>
 </div>
