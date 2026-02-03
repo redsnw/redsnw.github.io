@@ -30,7 +30,7 @@ title: Termlista
   .term-card:target {
     border-color: #00ff9c;
     box-shadow: 0 0 0 2px rgba(0,255,156,.25);
-    animation: term-pulse 1.4s ease-in-out 2;
+    animation: term-pulse 2.5s ease-in-out 3;
   }
 
   @keyframes term-pulse {
@@ -72,6 +72,6 @@ title: Termlista
     // Clear the highlight after a short pulse window
     setTimeout(function () {
       history.replaceState(null, document.title, window.location.pathname + window.location.search);
-    }, 3200);
+    }, 7000);
   })();
 </script>
