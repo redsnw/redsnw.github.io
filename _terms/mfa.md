@@ -1,0 +1,4 @@
+﻿---
+term: "MFA"
+def: "Multifaktorautentisering, extra steg ut över lösenord."
+---

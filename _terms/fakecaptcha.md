@@ -1,0 +1,4 @@
+﻿---
+term: "FakeCaptcha"
+def: "En phishingmetod som lurar användaren att själv köra skadlig kod via falsk CAPTCHA."
+---

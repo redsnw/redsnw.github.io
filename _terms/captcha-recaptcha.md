@@ -1,0 +1,4 @@
+﻿---
+term: "CAPTCHA / reCAPTCHA"
+def: "Test som ska skilja människor från botar, ofta missbrukat i bluffar."
+---

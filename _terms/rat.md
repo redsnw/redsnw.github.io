@@ -1,0 +1,4 @@
+﻿---
+term: "RAT"
+def: "Remote Access Trojan, ger angriparen fjärrkontroll över datorn."
+---

@@ -1,0 +1,4 @@
+﻿---
+term: "-EncodedCommand"
+def: "PowerShell‑flagga för att köra kod i kodad form, vanligt i attacker."
+---

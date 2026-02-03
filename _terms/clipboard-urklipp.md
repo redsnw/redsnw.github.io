@@ -1,0 +1,4 @@
+﻿---
+term: "Clipboard (urklipp)"
+def: "Temporärt minne för kopierad text, som kan fyllas med skadliga kommandon."
+---
