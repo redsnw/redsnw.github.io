@@ -186,6 +186,9 @@ Göra en enkel version av detta med hjälp av attack‑ och defend‑VM:er.
 
 [![Demo video](https://img.youtube.com/vi/88yihuQiOAY/0.jpg)](https://youtu.be/88yihuQiOAY)
 
+![labbvideo](https://github.com/user-attachments/assets/4486e80d-eac8-4adb-b5b5-55b10517ade2)
+
+
 
 ## Referenser
 ````
