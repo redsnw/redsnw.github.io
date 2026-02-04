@@ -180,7 +180,7 @@ Virusen som installeras är oftast stealers eller RAT som sedan leder till konto
 
 
 
-## Labboration demo
+## Laboration demo
 
 [![Demo video](https://img.youtube.com/vi/88yihuQiOAY/0.jpg)](https://youtu.be/88yihuQiOAY)
 
