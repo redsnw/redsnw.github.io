@@ -184,11 +184,7 @@ Virusen som installeras är oftast stealers eller RAT som sedan leder till konto
 Göra en enkel version av detta med hjälp av attack‑ och defend‑VM:er. 
 Öppna Kalkylatorn på defend‑VM från attack‑VM. 
 
-<video controls width="100%" style="max-width: 900px; border-radius: 10px;">
-  <source src="{{ '/assets/video/Fakecaptcha.mp4' | relative_url }}" type="video/mp4" />
-  Din webbläsare stödjer inte video-taggen.
-</video>
-
+[![Demo video](https://img.youtube.com/vi/88yihuQiOAY/0.jpg)](https://youtu.be/88yihuQiOAY)
 
 
 ## Referenser
