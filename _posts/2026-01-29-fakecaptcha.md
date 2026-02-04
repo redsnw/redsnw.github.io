@@ -180,9 +180,7 @@ Virusen som installeras är oftast stealers eller RAT som sedan leder till konto
 
 
 
-### Labbidé
-Göra en enkel version av detta med hjälp av attack‑ och defend‑VM:er. 
-Öppna Kalkylatorn på defend‑VM från attack‑VM. 
+## Labboration demo
 
 [![Demo video](https://img.youtube.com/vi/88yihuQiOAY/0.jpg)](https://youtu.be/88yihuQiOAY)
 
