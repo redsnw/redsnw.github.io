@@ -190,6 +190,9 @@ Göra en enkel version av detta med hjälp av attack‑ och defend‑VM:er.
 </video>
 
 
+![labbvideo](https://github.com/user-attachments/assets/4486e80d-eac8-4adb-b5b5-55b10517ade2)
+
+
 
 ## Referenser
 ````
