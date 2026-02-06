@@ -11,13 +11,7 @@ image: https://images-bonnier.imgix.net/files/kom/production/2024/04/03100724/Ub
 
 {% raw %}
 ## Introduktion
-Skriv en kort introduktion till labben och vad man kommer lara sig.
-
-## Terminalen i Ubuntu
-Beskriv kort vad terminalen ar och nar den ar anvandbar.
-
-## Filsystem i Linux
-Forklara mappstruktur (/, /home, /etc, /var) och var filer normalt ligger.
+I denna labb får du en snabb introduktion till Ubuntu‑terminalen och Linux‑filsystemet. Du lär dig grunderna i navigering, filhantering och viktiga kommandon som du behöver för vidare Linux‑arbete.
 
 ## Uppgift
 
