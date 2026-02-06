@@ -275,7 +275,30 @@
           { term: "stealer", def: "Malware som stjäl inloggningar, cookies eller annan data.", pattern: "\\bstealer(s)?\\b", slug: "stealer" },
           { term: "RAT", def: "Remote Access Trojan, ger angriparen fjärrkontroll över datorn.", pattern: "\\bRAT\\b", slug: "rat" },
           { term: "malware", def: "Skadlig kod som infekterar system.", pattern: "\\bmalware\\b", slug: "malware" },
-          { term: "crypto mining", def: "Missbruk av din dator för att utvinna kryptovaluta.", pattern: "crypto\\s+mining", slug: "crypto-mining" }
+          { term: "crypto mining", def: "Missbruk av din dator för att utvinna kryptovaluta.", pattern: "crypto\\s+mining", slug: "crypto-mining" },
+          { term: "Ubuntu", def: "Linuxdistribution som ofta används för utbildning och utveckling.", pattern: "\\bUbuntu\\b", slug: "ubuntu" },
+          { term: "terminal", def: "Textbaserat gränssnitt för att köra kommandon direkt i systemet.", pattern: "\\bterminal(en)?\\b", slug: "terminal" },
+          { term: "filsystem", def: "Struktur för hur filer och mappar organiseras på en dator.", pattern: "\\bfilsystem(et)?\\b", slug: "filsystem" },
+          { term: "rotkatalog", def: "Basen i Linuxfilsystemet där allt annat ligger under.", pattern: "\\brotkatalog(en)?\\b", slug: "rotkatalog" },
+          { term: "/home", def: "Plats för användarnas personliga filer och mappar.", pattern: "/home", slug: "home" },
+          { term: "/etc", def: "System- och programkonfigurationer.", pattern: "/etc", slug: "etc" },
+          { term: "/var", def: "Loggar och variabel data som ändras ofta.", pattern: "/var", slug: "var" },
+          { term: "pwd", def: "Visar nuvarande katalog (var du är).", pattern: "\\bpwd\\b", slug: "pwd" },
+          { term: "ls", def: "Listar filer och mappar i en katalog.", pattern: "\\bls\\b", slug: "ls" },
+          { term: "cd", def: "Byter katalog (navigerar i filsystemet).", pattern: "\\bcd\\b", slug: "cd" },
+          { term: "mkdir", def: "Skapar en ny mapp.", pattern: "\\bmkdir\\b", slug: "mkdir" },
+          { term: "rmdir", def: "Tar bort en tom mapp.", pattern: "\\brmdir\\b", slug: "rmdir" },
+          { term: "touch", def: "Skapar en tom fil eller uppdaterar en fil.", pattern: "\\btouch\\b", slug: "touch" },
+          { term: "rm", def: "Tar bort filer (och mappar med flaggor).", pattern: "\\brm\\b", slug: "rm" },
+          { term: "cat", def: "Visar filinnehåll direkt i terminalen.", pattern: "\\bcat\\b", slug: "cat" },
+          { term: "less", def: "Läser filer sida för sida med scroll.", pattern: "\\bless\\b", slug: "less" },
+          { term: "find", def: "Söker efter filer och mappar i katalogträd.", pattern: "\\bfind\\b", slug: "find" },
+          { term: "grep", def: "Söker efter text i filer.", pattern: "\\bgrep\\b", slug: "grep" },
+          { term: "Tab-komplettering", def: "Auto-kompletterar fil- och kommandonamn med Tab.", pattern: "Tab-komplettering", slug: "tab-komplettering" },
+          { term: "chmod", def: "Ändrar filrättigheter (rwx).", pattern: "\\bchmod\\b", slug: "chmod" },
+          { term: "chown", def: "Ändrar ägare och grupp för en fil.", pattern: "\\bchown\\b", slug: "chown" },
+          { term: "rwx", def: "Rättigheter: read, write, execute (läsa, skriva, köra).", pattern: "\\brwx\\b", slug: "rwx" },
+          { term: "sudo", def: "Kör kommando med administrativa rättigheter.", pattern: "\\bsudo\\b", slug: "sudo" }
         ];
 
         var patterns = glossary.map(function (g) { return g.pattern; });
