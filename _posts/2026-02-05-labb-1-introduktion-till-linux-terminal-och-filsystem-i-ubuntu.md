@@ -45,7 +45,58 @@ Beskriv find, grep och tab-komplettering.
 Forklara chmod, chown och rattigheter (rwx).
 
 ## Laboration demo
-Lagg in en kort demo, video eller bild pa labben.
+## Uppgift: Skapa och hantera en liten projektmapp
+
+1) Visa var du är  
+`pwd` = visar aktuell katalog  
+```bash
+pwd
+```
+
+2) Lista filer (inkl dolda)  
+`ls` = listar filer, `-l` = detaljer, `-a` = dolda  
+```bash
+ls -la
+```
+
+3) Gå till hemkatalogen  
+`cd` = byt katalog  
+```bash
+cd ~
+```
+
+4) Skapa mapp och gå in  
+`mkdir` = skapa mapp  
+```bash
+mkdir linux-labb
+cd linux-labb
+```
+
+5) Skapa fil  
+`touch` = skapa tom fil  
+```bash
+touch anteckningar.txt
+```
+
+6) Visa filinnehåll  
+`cat` = visar fil direkt  
+```bash
+cat anteckningar.txt
+```
+
+7) Öppna fil med scroll  
+`less` = läs fil med scroll  
+```bash
+less anteckningar.txt
+```
+
+8) Gå upp och ta bort  
+`rm` = ta bort fil, `rmdir` = ta bort tom mapp  
+```bash
+cd ..
+rm linux-labb/anteckningar.txt
+rmdir linux-labb
+```
 
 ## Referenser
 Lista eventuella kallor eller laenk-tips.
