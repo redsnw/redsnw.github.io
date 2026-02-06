@@ -86,6 +86,49 @@ grep "error" loggfil.txt
 
 **Tab-komplettering** – tryck Tab för att auto-komplettera filer, mappar och kommandon.
 
+### Uppgift: Navigering och sök
+1) Skapa en mapp med undermappar och filer  
+```bash
+mkdir -p sok-uppgift/rapport sok-uppgift/loggar
+touch sok-uppgift/rapport/anteckningar.txt
+touch sok-uppgift/loggar/system.log
+```
+
+2) Lägg in några rader text i loggfilen (valfritt)  
+```bash
+printf "INFO start\nERROR fel hittad\nINFO klar\n" > sok-uppgift/loggar/system.log
+```
+
+3) Sök efter ordet **ERROR** i loggfilen med `grep`  
+```bash
+grep "ERROR" sok-uppgift/loggar/system.log
+```
+
+4) Hitta alla `.log`-filer i mappen med `find`  
+```bash
+find sok-uppgift -name "*.log"
+```
+
+5) Hitta filen `anteckningar.txt` från din hemkatalog  
+```bash
+find ~ -name "anteckningar.txt"
+```
+
+6) Använd Tab-komplettering när du skriver fil- och mappnamn  
+(t.ex. skriv `sok-` + Tab)
+
+7) Gå in i mappen `rapport` och lista innehåll  
+```bash
+cd sok-uppgift/rapport
+ls -la
+```
+
+8) Rensa upp allt  
+```bash
+cd ~
+rm -r sok-uppgift
+```
+
 ## Behörigheter och ägarskap
 Linux använder ägare, grupp och övriga med rättigheter `rwx`:
 
@@ -101,6 +144,50 @@ chmod 644 fil.txt
 **chown** – ändra ägare och grupp (kräver sudo):
 ```bash
 sudo chown user:user fil.txt
+```
+
+### Uppgift: Behörigheter och ägarskap
+1) Skapa en mapp med två filer  
+```bash
+mkdir behorighet-test
+touch behorighet-test/offentlig.txt
+touch behorighet-test/privat.txt
+```
+
+2) Kontrollera behörigheter  
+```bash
+ls -l behorighet-test
+```
+
+3) Gör `privat.txt` bara läsbar för ägaren  
+```bash
+chmod 600 behorighet-test/privat.txt
+```
+
+4) Gör `offentlig.txt` läsbar för alla  
+```bash
+chmod 644 behorighet-test/offentlig.txt
+```
+
+5) Kontrollera att ändringarna slog igenom  
+```bash
+ls -l behorighet-test
+```
+
+6) (Valfritt) Byt ägare på mappen om du har sudo  
+```bash
+sudo chown -R $USER:$USER behorighet-test
+```
+
+7) Försök öppna filerna och notera skillnaden  
+```bash
+cat behorighet-test/offentlig.txt
+cat behorighet-test/privat.txt
+```
+
+8) Rensa upp  
+```bash
+rm -r behorighet-test
 ```
 
 ## Sammanfattning
