@@ -19,32 +19,8 @@ Beskriv kort vad terminalen ar och nar den ar anvandbar.
 ## Filsystem i Linux
 Forklara mappstruktur (/, /home, /etc, /var) och var filer normalt ligger.
 
-## Viktiga kommandon
-### 1. pwd (var ar jag?)
-Beskriv vad kommandot gor och ge ett exempel.
-
-### 2. ls (lista filer)
-Beskriv vanliga flaggor som -l och -a.
-
-### 3. cd (byt katalog)
-Beskriv absoluta och relativa vagar.
-
-### 4. mkdir / rmdir
-Skapa och ta bort mappar.
-
-### 5. touch / rm
-Skapa och ta bort filer.
-
-### 6. cat / less
-Lasa filer i terminalen.
-
-## Navigering och sok
-Beskriv find, grep och tab-komplettering.
-
-## Behorigheter och agarskap
-Forklara chmod, chown och rattigheter (rwx).
-
 ## Uppgift
+
 ### Skapa och hantera en liten projektmapp
 
 1) Visa var du är  
@@ -97,6 +73,11 @@ cd ..
 rm linux-labb/anteckningar.txt
 rmdir linux-labb
 ```
+## Navigering och sok
+Beskriv find, grep och tab-komplettering.
+
+## Behorigheter och agarskap
+Forklara chmod, chown och rattigheter (rwx).
 
 ## Referenser
 Lista eventuella kallor eller laenk-tips.
