@@ -1,4 +1,4 @@
----
+﻿---
 layout: post
 title: "Introduktion till Linux terminal och filsystem i Ubuntu"
 categories: [blogpost]
@@ -11,7 +11,7 @@ image: https://images-bonnier.imgix.net/files/kom/production/2024/04/03100724/Ub
 
 {% raw %}
 ## Introduktion
-I denna labb får du en snabb introduktion till Ubuntu‑terminalen och Linux‑filsystemet. Du lär dig grunderna i navigering, filhantering och viktiga kommandon som du behöver för vidare Linux‑arbete.
+I denna labb får du en snabb introduktion till Ubuntu-terminalen och Linux-filsystemet. Du lär dig grunderna i navigering, filhantering och viktiga kommandon som du behöver för vidare Linux-arbete.
 
 ## Uppgift
 
@@ -67,12 +67,41 @@ cd ..
 rm linux-labb/anteckningar.txt
 rmdir linux-labb
 ```
-## Navigering och sok
-Beskriv find, grep och tab-komplettering.
+## Navigering och sök
+Här lär du dig hitta filer och söka i text från terminalen:
 
-## Behorigheter och agarskap
-Forklara chmod, chown och rattigheter (rwx).
+**find** – sök efter filer i en katalogstruktur:
+```bash
+find /home -name fil.txt
+```
+
+**grep** – sök efter text i filer (vanligt i loggar):
+```bash
+grep "error" loggfil.txt
+```
+
+**Tab-komplettering** – tryck Tab för att auto-komplettera filer, mappar och kommandon.
+
+## Behörigheter och ägarskap
+Linux använder ägare, grupp och övriga med rättigheter `rwx`:
+
+- `r` = read (läsa)
+- `w` = write (skriva)
+- `x` = execute (köra)
+
+**chmod** – ändra behörigheter:
+```bash
+chmod 644 fil.txt
+```
+
+**chown** – ändra ägare och grupp (kräver sudo):
+```bash
+sudo chown user:user fil.txt
+```
+
+## Sammanfattning
+I labben har du fått grunderna i terminalnavigering, filhantering och rättigheter. Detta är en stabil bas för vidare arbete inom Linux, IT-support och systemadministration.
 
 ## Referenser
-Lista eventuella kallor eller laenk-tips.
 {% endraw %}
+
