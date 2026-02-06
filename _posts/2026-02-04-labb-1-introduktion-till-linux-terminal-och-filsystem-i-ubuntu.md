@@ -5,8 +5,9 @@ categories: [blogpost]
 tags: [Linux, Ubuntu, Terminal]
 render_with_liquid: false
 image: https://images-bonnier.imgix.net/files/kom/production/2024/04/03100724/Ubuntu-WEB.png?auto=compress,format
+date: 2026-02-04 12:00:00 +0000
+published: true
 ---
-
 <!--more-->
 
 {% raw %}
@@ -180,3 +181,4 @@ Genom praktiska kommandon har jag lärt mig hur man navigerar, hanterar filer och
 
 Detta är en viktig grund för vidare arbete inom Linux, IT-support och systemadministration.
 {% endraw %}
+
