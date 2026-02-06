@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Labb 1: Introduktion till Linux terminal och filsystem i Ubuntu"
+title: "Introduktion till Linux terminal och filsystem i Ubuntu"
 categories: [blogpost]
 tags: [Linux, Ubuntu, Terminal]
 render_with_liquid: false
