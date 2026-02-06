@@ -68,6 +68,9 @@ rm linux-labb/anteckningar.txt
 rmdir linux-labb
 ```
 
+Demo-video (projektmapp):
+[![Demo video](https://img.youtube.com/vi/h94PqoOC02s/0.jpg)](https://www.youtube.com/watch?v=h94PqoOC02s)
+
 ## Navigering och sök
 Här lär du dig hitta filer och söka i text från terminalen:
 
