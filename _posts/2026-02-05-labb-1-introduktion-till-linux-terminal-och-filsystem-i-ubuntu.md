@@ -67,6 +67,7 @@ cd ..
 rm linux-labb/anteckningar.txt
 rmdir linux-labb
 ```
+
 ## Navigering och sök
 Här lär du dig hitta filer och söka i text från terminalen:
 
