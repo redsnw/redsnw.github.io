@@ -44,8 +44,8 @@ Beskriv find, grep och tab-komplettering.
 ## Behorigheter och agarskap
 Forklara chmod, chown och rattigheter (rwx).
 
-## Laboration demo
-## Uppgift: Skapa och hantera en liten projektmapp
+## Uppgift
+### Skapa och hantera en liten projektmapp
 
 1) Visa var du är  
 `pwd` = visar aktuell katalog  
