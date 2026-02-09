@@ -442,11 +442,7 @@
               var parent = node.parentNode;
               if (!parent) return NodeFilter.FILTER_REJECT;
               var tag = parent.nodeName;
-              if (/(SCRIPT|STYLE|PRE|A|TEXTAREA|KBD|H1|H2|H3|H4|H5|H6)/.test(tag)) return NodeFilter.FILTER_REJECT;
-              if (tag === "CODE") {
-                var gp = parent.parentNode;
-                if (!(gp && gp.nodeName === "PRE")) return NodeFilter.FILTER_REJECT;
-              }
+              if (/(SCRIPT|STYLE|CODE|PRE|A|TEXTAREA|KBD|H1|H2|H3|H4|H5|H6)/.test(tag)) return NodeFilter.FILTER_REJECT;
               return NodeFilter.FILTER_ACCEPT;
             }
           }
