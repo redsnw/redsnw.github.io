@@ -69,6 +69,11 @@ title: Termlista
     if (!hash) return;
     var target = document.querySelector(hash);
     if (!target) return;
+    // Scroll to the target with offset for sticky navbar
+    setTimeout(function () {
+      var y = target.getBoundingClientRect().top + window.pageYOffset - 90;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }, 50);
     // Clear the highlight after a short pulse window
     setTimeout(function () {
       history.replaceState(null, document.title, window.location.pathname + window.location.search);
