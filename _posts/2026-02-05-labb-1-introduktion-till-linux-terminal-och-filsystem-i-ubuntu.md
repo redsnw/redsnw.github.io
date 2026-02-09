@@ -18,50 +18,50 @@ I denna labb får du en snabb introduktion till Ubuntu-terminalen och Linux-fils
 ### Skapa och hantera en liten projektmapp
 
 1) Visa var du är  
-<a class="glossary-term" href="/termlista/#term-pwd">pwd</a> = visar aktuell katalog  
+<a class="glossary-term" href="/termlista/#term-pwd" data-tip="Visar nuvarande katalog (var du &auml;r).">pwd</a> = visar aktuell katalog  
 ```bash
 pwd
 ```
 
 2) Lista filer (inkl dolda)  
-<a class="glossary-term" href="/termlista/#term-ls">ls</a> = listar filer, `-l` = detaljer, `-a` = dolda  
+<a class="glossary-term" href="/termlista/#term-ls" data-tip="Listar filer och mappar i en katalog.">ls</a> = listar filer, `-l` = detaljer, `-a` = dolda  
 ```bash
 ls -la
 ```
 
 3) Gå till hemkatalogen  
-<a class="glossary-term" href="/termlista/#term-cd">cd</a> = byt katalog  
+<a class="glossary-term" href="/termlista/#term-cd" data-tip="Byter katalog (navigerar i filsystemet).">cd</a> = byt katalog  
 ```bash
 cd ~
 ```
 
 4) Skapa mapp och gå in  
-<a class="glossary-term" href="/termlista/#term-mkdir">mkdir</a> = skapa mapp  
+<a class="glossary-term" href="/termlista/#term-mkdir" data-tip="Skapar en ny mapp.">mkdir</a> = skapa mapp  
 ```bash
 mkdir linux-labb
 cd linux-labb
 ```
 
 5) Skapa fil  
-<a class="glossary-term" href="/termlista/#term-touch">touch</a> = skapa tom fil  
+<a class="glossary-term" href="/termlista/#term-touch" data-tip="Skapar en tom fil eller uppdaterar en fil.">touch</a> = skapa tom fil  
 ```bash
 touch anteckningar.txt
 ```
 
 6) Visa filinnehåll  
-<a class="glossary-term" href="/termlista/#term-cat">cat</a> = visar fil direkt  
+<a class="glossary-term" href="/termlista/#term-cat" data-tip="Visar filinneh&aring;ll direkt i terminalen.">cat</a> = visar fil direkt  
 ```bash
 cat anteckningar.txt
 ```
 
 7) Öppna fil med scroll  
-<a class="glossary-term" href="/termlista/#term-less">less</a> = läs fil med scroll  
+<a class="glossary-term" href="/termlista/#term-less" data-tip="L&auml;ser filer sida f&ouml;r sida med scroll.">less</a> = läs fil med scroll  
 ```bash
 less anteckningar.txt
 ```
 
 8) Gå upp och ta bort  
-<a class="glossary-term" href="/termlista/#term-rm">rm</a> = ta bort fil, <a class="glossary-term" href="/termlista/#term-rmdir">rmdir</a> = ta bort tom mapp  
+<a class="glossary-term" href="/termlista/#term-rm" data-tip="Tar bort filer (och mappar med flaggor).">rm</a> = ta bort fil, <a class="glossary-term" href="/termlista/#term-rmdir" data-tip="Tar bort en tom mapp.">rmdir</a> = ta bort tom mapp  
 ```bash
 cd ..
 rm linux-labb/anteckningar.txt
@@ -74,12 +74,12 @@ Demo-video (projektmapp):
 ## Navigering och sök
 Här lär du dig hitta filer och söka i text från terminalen:
 
-<a class="glossary-term" href="/termlista/#term-find"><strong>find</strong></a> – sök efter filer i en katalogstruktur:
+<a class="glossary-term" href="/termlista/#term-find" data-tip="S&ouml;ker efter filer och mappar i katalogtr&auml;d."><strong>find</strong></a> – sök efter filer i en katalogstruktur:
 ```bash
 find /home -name fil.txt
 ```
 
-<a class="glossary-term" href="/termlista/#term-grep"><strong>grep</strong></a> – sök efter text i filer (vanligt i loggar):
+<a class="glossary-term" href="/termlista/#term-grep" data-tip="S&ouml;ker efter text i filer."><strong>grep</strong></a> – sök efter text i filer (vanligt i loggar):
 ```bash
 grep "error" loggfil.txt
 ```
