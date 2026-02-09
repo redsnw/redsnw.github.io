@@ -18,50 +18,50 @@ I denna labb får du en snabb introduktion till Ubuntu-terminalen och Linux-fils
 ### Skapa och hantera en liten projektmapp
 
 1) Visa var du är  
-`pwd` = visar aktuell katalog  
+<a class="glossary-term" href="/termlista/#term-pwd">pwd</a> = visar aktuell katalog  
 ```bash
 pwd
 ```
 
 2) Lista filer (inkl dolda)  
-`ls` = listar filer, `-l` = detaljer, `-a` = dolda  
+<a class="glossary-term" href="/termlista/#term-ls">ls</a> = listar filer, `-l` = detaljer, `-a` = dolda  
 ```bash
 ls -la
 ```
 
 3) Gå till hemkatalogen  
-`cd` = byt katalog  
+<a class="glossary-term" href="/termlista/#term-cd">cd</a> = byt katalog  
 ```bash
 cd ~
 ```
 
 4) Skapa mapp och gå in  
-`mkdir` = skapa mapp  
+<a class="glossary-term" href="/termlista/#term-mkdir">mkdir</a> = skapa mapp  
 ```bash
 mkdir linux-labb
 cd linux-labb
 ```
 
 5) Skapa fil  
-`touch` = skapa tom fil  
+<a class="glossary-term" href="/termlista/#term-touch">touch</a> = skapa tom fil  
 ```bash
 touch anteckningar.txt
 ```
 
 6) Visa filinnehåll  
-`cat` = visar fil direkt  
+<a class="glossary-term" href="/termlista/#term-cat">cat</a> = visar fil direkt  
 ```bash
 cat anteckningar.txt
 ```
 
 7) Öppna fil med scroll  
-`less` = läs fil med scroll  
+<a class="glossary-term" href="/termlista/#term-less">less</a> = läs fil med scroll  
 ```bash
 less anteckningar.txt
 ```
 
 8) Gå upp och ta bort  
-`rm` = ta bort fil, `rmdir` = ta bort tom mapp  
+<a class="glossary-term" href="/termlista/#term-rm">rm</a> = ta bort fil, <a class="glossary-term" href="/termlista/#term-rmdir">rmdir</a> = ta bort tom mapp  
 ```bash
 cd ..
 rm linux-labb/anteckningar.txt
@@ -74,12 +74,12 @@ Demo-video (projektmapp):
 ## Navigering och sök
 Här lär du dig hitta filer och söka i text från terminalen:
 
-**find** – sök efter filer i en katalogstruktur:
+<a class="glossary-term" href="/termlista/#term-find"><strong>find</strong></a> – sök efter filer i en katalogstruktur:
 ```bash
 find /home -name fil.txt
 ```
 
-**grep** – sök efter text i filer (vanligt i loggar):
+<a class="glossary-term" href="/termlista/#term-grep"><strong>grep</strong></a> – sök efter text i filer (vanligt i loggar):
 ```bash
 grep "error" loggfil.txt
 ```
