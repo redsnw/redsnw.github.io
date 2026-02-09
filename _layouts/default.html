@@ -91,8 +91,10 @@
       }
 
       .post-toc {
-        position: sticky;
+        position: fixed;
         top: 84px;
+        width: 180px;
+        left: calc((100vw - 1100px) / 2 + 20px);
         align-self: start;
         border: 1px solid var(--border);
         border-radius: 12px;
@@ -181,6 +183,8 @@
         }
         .post-toc {
           position: static;
+          width: auto;
+          left: auto;
         }
       }
 
