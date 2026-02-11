@@ -90,6 +90,13 @@ grep "error" loggfil.txt
 
 **Tab-komplettering** – tryck Tab för att auto-komplettera filer, mappar och kommandon.
 
+<figure class="demo-video-card">
+  <figcaption class="demo-video-label">Demo-video (navigering och sök)</figcaption>
+  <a href="https://www.youtube.com/watch?v=ijALfKOxDMc" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.youtube.com/vi/ijALfKOxDMc/0.jpg" alt="Demo video för navigering och sök i Linux-terminalen" loading="lazy" />
+  </a>
+</figure>
+
 ### Uppgift: Navigering och sök
 1) Skapa en mapp med undermappar och filer  
 ```bash
@@ -149,6 +156,13 @@ chmod 644 fil.txt
 ```bash
 sudo chown user:user fil.txt
 ```
+
+<figure class="demo-video-card">
+  <figcaption class="demo-video-label">Demo-video (behörigheter och ägarskap)</figcaption>
+  <a href="https://www.youtube.com/watch?v=mzE1N96KqlE" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.youtube.com/vi/mzE1N96KqlE/0.jpg" alt="Demo video för behörigheter och ägarskap i Linux" loading="lazy" />
+  </a>
+</figure>
 
 ### Skapa och byta till en vanlig användare
 1) Skapa användaren  
