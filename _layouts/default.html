@@ -266,6 +266,95 @@
         transform: translateY(0);
       }
 
+      body.quiz-open {
+        overflow: hidden;
+      }
+
+      .quiz-overlay[hidden] {
+        display: none;
+      }
+
+      .quiz-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 5000;
+        background: rgba(0, 0, 0, 0.72);
+        display: grid;
+        place-items: center;
+        padding: 18px;
+      }
+
+      .quiz-card {
+        width: min(720px, 100%);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: #10161b;
+        box-shadow: 0 20px 50px rgba(0,0,0,.45);
+        overflow: hidden;
+      }
+
+      .quiz-head {
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--border);
+        background: linear-gradient(90deg, rgba(0,255,156,.18), rgba(0,255,156,.06));
+        font-weight: 700;
+      }
+
+      .quiz-body {
+        padding: 16px;
+      }
+
+      .quiz-progress {
+        color: var(--muted);
+        font-size: .92rem;
+        margin-bottom: 8px;
+      }
+
+      .quiz-question {
+        font-size: 1.1rem;
+        margin: 0 0 12px;
+      }
+
+      .quiz-options {
+        display: grid;
+        gap: 10px;
+      }
+
+      .quiz-option-btn {
+        width: 100%;
+        text-align: left;
+        padding: 10px 12px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,.03);
+        color: var(--fg);
+        cursor: pointer;
+        font: inherit;
+      }
+
+      .quiz-option-btn:hover {
+        border-color: rgba(0,255,156,.35);
+        background: rgba(0,255,156,.08);
+      }
+
+      .quiz-feedback {
+        margin-top: 10px;
+        min-height: 1.2em;
+        font-weight: 700;
+      }
+
+      .quiz-feedback.ok {
+        color: #85f6b8;
+      }
+
+      .quiz-feedback.bad {
+        color: #ff8f8f;
+      }
+
+      .quiz-done {
+        margin-top: 12px;
+      }
+
       @media (max-width: 640px) {
         .topbar-inner {
           flex-direction: column;
@@ -288,6 +377,22 @@
     <main class="wrap">
       {{ content }}
     </main>
+    {% if page.title == "Introduktion till Linux terminal och filsystem i Ubuntu" %}
+    <div id="linux-quiz-overlay" class="quiz-overlay" hidden>
+      <div class="quiz-card" role="dialog" aria-modal="true" aria-labelledby="linux-quiz-title">
+        <div id="linux-quiz-title" class="quiz-head">Quiz: Linux-labben</div>
+        <div class="quiz-body">
+          <div id="linux-quiz-progress" class="quiz-progress"></div>
+          <p id="linux-quiz-question" class="quiz-question"></p>
+          <div id="linux-quiz-options" class="quiz-options"></div>
+          <div id="linux-quiz-feedback" class="quiz-feedback" aria-live="polite"></div>
+          <div id="linux-quiz-done" class="quiz-done" hidden>
+            <button id="linux-quiz-close" class="quiz-option-btn">Stäng quiz</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
     <meta name="glossary-link" content="enabled" />
     <script>
       (function () {
@@ -495,6 +600,123 @@
         nodes.forEach(wrapNode);
       })();
     </script>
+    {% if page.title == "Introduktion till Linux terminal och filsystem i Ubuntu" %}
+    <script>
+      (function () {
+        var overlay = document.getElementById("linux-quiz-overlay");
+        if (!overlay) return;
+
+        var progressEl = document.getElementById("linux-quiz-progress");
+        var questionEl = document.getElementById("linux-quiz-question");
+        var optionsEl = document.getElementById("linux-quiz-options");
+        var feedbackEl = document.getElementById("linux-quiz-feedback");
+        var doneEl = document.getElementById("linux-quiz-done");
+        var closeBtn = document.getElementById("linux-quiz-close");
+
+        var questions = [
+          {
+            q: "Vad gör chmod?",
+            options: [
+              { text: "Ändrar filrättigheter (rwx)", ok: true },
+              { text: "Byter filägare", ok: false },
+              { text: "Söker efter filer", ok: false }
+            ]
+          },
+          {
+            q: "Vilket kommando byter katalog?",
+            options: [
+              { text: "cd", ok: true },
+              { text: "pwd", ok: false },
+              { text: "ls", ok: false }
+            ]
+          },
+          {
+            q: "Vilket kommando söker efter text i filer?",
+            options: [
+              { text: "grep", ok: true },
+              { text: "find", ok: false },
+              { text: "touch", ok: false }
+            ]
+          },
+          {
+            q: "Vad betyder r i rwx?",
+            options: [
+              { text: "read", ok: true },
+              { text: "run-as-root", ok: false },
+              { text: "rename", ok: false }
+            ]
+          }
+        ];
+
+        var current = 0;
+        var shown = false;
+
+        function setOpen(isOpen) {
+          overlay.hidden = !isOpen;
+          document.body.classList.toggle("quiz-open", isOpen);
+        }
+
+        function renderQuestion() {
+          if (current >= questions.length) {
+            progressEl.textContent = "Klart";
+            questionEl.textContent = "Bra jobbat, du klarade quizen.";
+            optionsEl.innerHTML = "";
+            feedbackEl.textContent = "";
+            feedbackEl.className = "quiz-feedback";
+            doneEl.hidden = false;
+            return;
+          }
+
+          var item = questions[current];
+            progressEl.textContent = "Fråga " + (current + 1) + " av " + questions.length;
+          questionEl.textContent = item.q;
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          doneEl.hidden = true;
+
+          item.options.forEach(function (opt) {
+            var btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "quiz-option-btn";
+            btn.textContent = opt.text;
+            btn.addEventListener("click", function () {
+              if (opt.ok) {
+                feedbackEl.textContent = "Rätt svar. Vidare till nästa.";
+                feedbackEl.className = "quiz-feedback ok";
+                window.setTimeout(function () {
+                  current += 1;
+                  renderQuestion();
+                }, 650);
+                return;
+              }
+              feedbackEl.textContent = "Fel svar. Försök igen.";
+              feedbackEl.className = "quiz-feedback bad";
+            });
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function maybeShowQuiz() {
+          if (shown) return;
+          var nearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 120;
+          if (!nearBottom) return;
+          shown = true;
+          current = 0;
+          renderQuestion();
+          setOpen(true);
+          window.removeEventListener("scroll", maybeShowQuiz);
+        }
+
+        closeBtn.addEventListener("click", function () {
+          setOpen(false);
+        });
+
+        window.addEventListener("scroll", maybeShowQuiz, { passive: true });
+        maybeShowQuiz();
+      })();
+    </script>
+    {% endif %}
   </body>
 </html>
 
