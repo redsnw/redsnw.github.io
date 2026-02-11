@@ -375,6 +375,10 @@
         margin-top: 12px;
       }
 
+      .quiz-trigger-spacer {
+        height: clamp(180px, 28vh, 320px);
+      }
+
       @media (max-width: 640px) {
         .topbar-inner {
           flex-direction: column;
@@ -397,6 +401,9 @@
     <main class="wrap">
       {{ content }}
     </main>
+    {% if page.title == "Introduktion till Linux terminal och filsystem i Ubuntu" or page.title == "FakeCaptcha" %}
+    <div class="quiz-trigger-spacer" aria-hidden="true"></div>
+    {% endif %}
     {% if page.title == "Introduktion till Linux terminal och filsystem i Ubuntu" or page.title == "FakeCaptcha" %}
     <div id="post-quiz-overlay" class="quiz-overlay" hidden>
       <div class="quiz-card" role="dialog" aria-modal="true" aria-labelledby="post-quiz-title">
