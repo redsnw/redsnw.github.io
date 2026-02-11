@@ -159,6 +159,41 @@
         background: rgba(255,255,255,.02);
       }
 
+      .demo-video-card {
+        margin: 18px auto 8px;
+        max-width: 900px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: rgba(255,255,255,.03);
+        overflow: hidden;
+      }
+
+      .demo-video-label {
+        margin: 0;
+        padding: 12px 14px;
+        font-weight: 700;
+        color: #dfffee;
+        border-bottom: 1px solid var(--border);
+        background: linear-gradient(90deg, rgba(0,255,156,.16), rgba(0,255,156,.04));
+      }
+
+      .demo-video-card a {
+        display: block;
+        text-decoration: none;
+      }
+
+      .demo-video-card img {
+        margin: 0;
+        border: 0;
+        border-radius: 0;
+        transition: transform .2s ease, filter .2s ease;
+      }
+
+      .demo-video-card a:hover img {
+        transform: scale(1.01);
+        filter: brightness(1.04);
+      }
+
       .post-section > :first-child {
         margin-top: 0;
       }

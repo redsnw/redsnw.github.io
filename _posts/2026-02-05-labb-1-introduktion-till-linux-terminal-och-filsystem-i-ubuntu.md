@@ -68,8 +68,12 @@ rm linux-labb/anteckningar.txt
 rmdir linux-labb
 ```
 
-Demo-video (projektmapp):
-[![Demo video](https://img.youtube.com/vi/h94PqoOC02s/0.jpg)](https://www.youtube.com/watch?v=h94PqoOC02s)
+<figure class="demo-video-card">
+  <figcaption class="demo-video-label">Demo-video (projektmapp)</figcaption>
+  <a href="https://www.youtube.com/watch?v=h94PqoOC02s" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.youtube.com/vi/h94PqoOC02s/0.jpg" alt="Demo video för projektmapp i Ubuntu-terminalen" loading="lazy" />
+  </a>
+</figure>
 
 ## Navigering och sök
 Här lär du dig hitta filer och söka i text från terminalen:
