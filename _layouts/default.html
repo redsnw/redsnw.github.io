@@ -376,7 +376,7 @@
       }
 
       .quiz-trigger-spacer {
-        height: clamp(180px, 28vh, 320px);
+        height: clamp(320px, 45vh, 560px);
       }
 
       @media (max-width: 640px) {
@@ -719,7 +719,7 @@
         }
 
         var current = 0;
-        var shown = false;
+        var armed = true;
 
         function setOpen(isOpen) {
           overlay.hidden = !isOpen;
@@ -768,14 +768,16 @@
         }
 
         function maybeShowQuiz() {
-          if (shown) return;
           var nearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 120;
-          if (!nearBottom) return;
-          shown = true;
+          if (!nearBottom) {
+            armed = true;
+            return;
+          }
+          if (!armed || !overlay.hidden) return;
+          armed = false;
           current = 0;
           renderQuestion();
           setOpen(true);
-          window.removeEventListener("scroll", maybeShowQuiz);
         }
 
         closeBtn.addEventListener("click", function () {
