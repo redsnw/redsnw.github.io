@@ -377,17 +377,19 @@
     <main class="wrap">
       {{ content }}
     </main>
-    {% if page.title == "Introduktion till Linux terminal och filsystem i Ubuntu" %}
-    <div id="linux-quiz-overlay" class="quiz-overlay" hidden>
-      <div class="quiz-card" role="dialog" aria-modal="true" aria-labelledby="linux-quiz-title">
-        <div id="linux-quiz-title" class="quiz-head">Quiz: Linux-labben</div>
+    {% if page.title == "Introduktion till Linux terminal och filsystem i Ubuntu" or page.title == "FakeCaptcha" %}
+    <div id="post-quiz-overlay" class="quiz-overlay" hidden>
+      <div class="quiz-card" role="dialog" aria-modal="true" aria-labelledby="post-quiz-title">
+        <div id="post-quiz-title" class="quiz-head">
+          {% if page.title == "FakeCaptcha" %}Quiz: FakeCaptcha{% else %}Quiz: Linux-labben{% endif %}
+        </div>
         <div class="quiz-body">
-          <div id="linux-quiz-progress" class="quiz-progress"></div>
-          <p id="linux-quiz-question" class="quiz-question"></p>
-          <div id="linux-quiz-options" class="quiz-options"></div>
-          <div id="linux-quiz-feedback" class="quiz-feedback" aria-live="polite"></div>
-          <div id="linux-quiz-done" class="quiz-done" hidden>
-            <button id="linux-quiz-close" class="quiz-option-btn">Stäng quiz</button>
+          <div id="post-quiz-progress" class="quiz-progress"></div>
+          <p id="post-quiz-question" class="quiz-question"></p>
+          <div id="post-quiz-options" class="quiz-options"></div>
+          <div id="post-quiz-feedback" class="quiz-feedback" aria-live="polite"></div>
+          <div id="post-quiz-done" class="quiz-done" hidden>
+            <button id="post-quiz-close" class="quiz-option-btn">Stäng quiz</button>
           </div>
         </div>
       </div>
@@ -600,53 +602,92 @@
         nodes.forEach(wrapNode);
       })();
     </script>
-    {% if page.title == "Introduktion till Linux terminal och filsystem i Ubuntu" %}
+    {% if page.title == "Introduktion till Linux terminal och filsystem i Ubuntu" or page.title == "FakeCaptcha" %}
     <script>
       (function () {
-        var overlay = document.getElementById("linux-quiz-overlay");
+        var overlay = document.getElementById("post-quiz-overlay");
         if (!overlay) return;
 
-        var progressEl = document.getElementById("linux-quiz-progress");
-        var questionEl = document.getElementById("linux-quiz-question");
-        var optionsEl = document.getElementById("linux-quiz-options");
-        var feedbackEl = document.getElementById("linux-quiz-feedback");
-        var doneEl = document.getElementById("linux-quiz-done");
-        var closeBtn = document.getElementById("linux-quiz-close");
+        var progressEl = document.getElementById("post-quiz-progress");
+        var questionEl = document.getElementById("post-quiz-question");
+        var optionsEl = document.getElementById("post-quiz-options");
+        var feedbackEl = document.getElementById("post-quiz-feedback");
+        var doneEl = document.getElementById("post-quiz-done");
+        var closeBtn = document.getElementById("post-quiz-close");
+        var pageTitle = {{ page.title | jsonify }};
+        var questions = [];
 
-        var questions = [
-          {
-            q: "Vad gör chmod?",
-            options: [
-              { text: "Ändrar filrättigheter (rwx)", ok: true },
-              { text: "Byter filägare", ok: false },
-              { text: "Söker efter filer", ok: false }
-            ]
-          },
-          {
-            q: "Vilket kommando byter katalog?",
-            options: [
-              { text: "cd", ok: true },
-              { text: "pwd", ok: false },
-              { text: "ls", ok: false }
-            ]
-          },
-          {
-            q: "Vilket kommando söker efter text i filer?",
-            options: [
-              { text: "grep", ok: true },
-              { text: "find", ok: false },
-              { text: "touch", ok: false }
-            ]
-          },
-          {
-            q: "Vad betyder r i rwx?",
-            options: [
-              { text: "read", ok: true },
-              { text: "run-as-root", ok: false },
-              { text: "rename", ok: false }
-            ]
-          }
-        ];
+        if (pageTitle === "FakeCaptcha") {
+          questions = [
+            {
+              q: "Vad försöker FakeCaptcha lura dig att göra?",
+              options: [
+                { text: "Köra skadliga kommandon via t.ex. Win+R", ok: true },
+                { text: "Uppdatera Ubuntu med apt", ok: false },
+                { text: "Byta lösenord i Linux", ok: false }
+              ]
+            },
+            {
+              q: "Vilket kommando nämns ofta i FakeCaptcha-kedjor?",
+              options: [
+                { text: "mshta.exe", ok: true },
+                { text: "ls -la", ok: false },
+                { text: "mkdir", ok: false }
+              ]
+            },
+            {
+              q: "Vilket varningstecken ska få dig att stänga sidan direkt?",
+              options: [
+                { text: "Sidan ber dig köra kod i Win+R/Terminal", ok: true },
+                { text: "Sidan har HTTPS", ok: false },
+                { text: "Sidan visar en vanlig bild", ok: false }
+              ]
+            },
+            {
+              q: "Vad är bästa första åtgärd vid misstänkt FakeCaptcha-sida?",
+              options: [
+                { text: "Stäng sidan och kör inga kommandon", ok: true },
+                { text: "Kör kommandot för att testa", ok: false },
+                { text: "Fortsätt tills CAPTCHA är klar", ok: false }
+              ]
+            }
+          ];
+        } else {
+          questions = [
+            {
+              q: "Vad gör chmod?",
+              options: [
+                { text: "Ändrar filrättigheter (rwx)", ok: true },
+                { text: "Byter filägare", ok: false },
+                { text: "Söker efter filer", ok: false }
+              ]
+            },
+            {
+              q: "Vilket kommando byter katalog?",
+              options: [
+                { text: "cd", ok: true },
+                { text: "pwd", ok: false },
+                { text: "ls", ok: false }
+              ]
+            },
+            {
+              q: "Vilket kommando söker efter text i filer?",
+              options: [
+                { text: "grep", ok: true },
+                { text: "find", ok: false },
+                { text: "touch", ok: false }
+              ]
+            },
+            {
+              q: "Vad betyder r i rwx?",
+              options: [
+                { text: "read", ok: true },
+                { text: "run-as-root", ok: false },
+                { text: "rename", ok: false }
+              ]
+            }
+          ];
+        }
 
         var current = 0;
         var shown = false;
