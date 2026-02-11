@@ -150,6 +150,22 @@ chmod 644 fil.txt
 sudo chown user:user fil.txt
 ```
 
+### Skapa och byta till en vanlig användare
+1) Skapa användaren  
+```bash
+sudo adduser testuser
+```
+
+2) Byt till användaren  
+```bash
+su - testuser
+```
+
+3) Gå tillbaka till din vanliga användare  
+```bash
+exit
+```
+
 ### Uppgift: Behörigheter och ägarskap
 1) Skapa en mapp med två filer  
 ```bash
@@ -178,19 +194,20 @@ chmod 644 behorighet-test/offentlig.txt
 ls -l behorighet-test
 ```
 
-6) (Valfritt) Byt ägare på mappen om du har sudo  
+6) Byt till vanlig användare (testuser)  
 ```bash
-sudo chown -R $USER:$USER behorighet-test
+su - testuser
 ```
 
-7) Försök öppna filerna och notera skillnaden  
+7) Testa både offentlig och privat fil  
 ```bash
-cat behorighet-test/offentlig.txt
-cat behorighet-test/privat.txt
+cat /home/<din-anvandare>/behorighet-test/offentlig.txt
+cat /home/<din-anvandare>/behorighet-test/privat.txt
 ```
 
 8) Rensa upp  
 ```bash
+exit
 rm -r behorighet-test
 ```
 
