@@ -294,10 +294,30 @@
       }
 
       .quiz-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         padding: 14px 16px;
         border-bottom: 1px solid var(--border);
         background: linear-gradient(90deg, rgba(0,255,156,.18), rgba(0,255,156,.06));
         font-weight: 700;
+      }
+
+      .quiz-close-icon {
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,.04);
+        color: var(--fg);
+        border-radius: 8px;
+        width: 32px;
+        height: 32px;
+        line-height: 1;
+        font-size: 1.1rem;
+        cursor: pointer;
+      }
+
+      .quiz-close-icon:hover {
+        border-color: rgba(0,255,156,.35);
+        background: rgba(0,255,156,.1);
       }
 
       .quiz-body {
@@ -380,8 +400,9 @@
     {% if page.title == "Introduktion till Linux terminal och filsystem i Ubuntu" or page.title == "FakeCaptcha" %}
     <div id="post-quiz-overlay" class="quiz-overlay" hidden>
       <div class="quiz-card" role="dialog" aria-modal="true" aria-labelledby="post-quiz-title">
-        <div id="post-quiz-title" class="quiz-head">
-          {% if page.title == "FakeCaptcha" %}Quiz: FakeCaptcha{% else %}Quiz: Linux-labben{% endif %}
+        <div class="quiz-head">
+          <span id="post-quiz-title">{% if page.title == "FakeCaptcha" %}Quiz: FakeCaptcha{% else %}Quiz: Linux-labben{% endif %}</span>
+          <button id="post-quiz-close-icon" class="quiz-close-icon" type="button" aria-label="Stäng quiz">×</button>
         </div>
         <div class="quiz-body">
           <div id="post-quiz-progress" class="quiz-progress"></div>
@@ -614,6 +635,7 @@
         var feedbackEl = document.getElementById("post-quiz-feedback");
         var doneEl = document.getElementById("post-quiz-done");
         var closeBtn = document.getElementById("post-quiz-close");
+        var closeIconBtn = document.getElementById("post-quiz-close-icon");
         var pageTitle = {{ page.title | jsonify }};
         var questions = [];
 
@@ -750,6 +772,9 @@
         }
 
         closeBtn.addEventListener("click", function () {
+          setOpen(false);
+        });
+        closeIconBtn.addEventListener("click", function () {
           setOpen(false);
         });
 
