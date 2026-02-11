@@ -227,7 +227,5 @@ rm -r behorighet-test
 
 ## Sammanfattning
 I labben har du fått grunderna i terminalnavigering, filhantering och rättigheter. Detta är en stabil bas för vidare arbete inom Linux, IT-support och systemadministration.
-
-## Referenser
 {% endraw %}
 
