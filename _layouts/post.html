@@ -18,6 +18,7 @@ layout: default
       data-emailjs-service-id="{{ site.emailjs.service_id }}"
       data-emailjs-template-id="{{ site.emailjs.template_id }}"
       data-emailjs-public-key="{{ site.emailjs.public_key }}"
+      data-emailjs-to-email="{{ site.emailjs.to_email }}"
     >
       <h2 id="post-contact-title">Fråga om inlägget</h2>
       <p class="post-contact-copy">
@@ -63,6 +64,7 @@ layout: default
     var serviceId = (contactRoot.dataset.emailjsServiceId || "").trim();
     var templateId = (contactRoot.dataset.emailjsTemplateId || "").trim();
     var publicKey = (contactRoot.dataset.emailjsPublicKey || "").trim();
+    var toEmail = (contactRoot.dataset.emailjsToEmail || "").trim();
     var cooldownMs = 60000;
     var firstSeen = Date.now();
     var storageKey = "postContactLastSentAt";
@@ -77,7 +79,7 @@ layout: default
       statusEl.classList.toggle("bad", !ok);
     }
 
-    if (!serviceId || !templateId || !publicKey) {
+    if (!serviceId || !templateId || !publicKey || !toEmail) {
       setStatus("Kontaktformuläret är inte konfigurerat än.", false);
       submitBtn.disabled = true;
       return;
@@ -137,6 +139,7 @@ layout: default
 
       window.emailjs
         .send(serviceId, templateId, {
+          to_email: toEmail,
           from_name: name,
           from_email: email,
           reply_to: email,
