@@ -66,6 +66,10 @@ layout: default
     var cooldownMs = 60000;
     var firstSeen = Date.now();
     var storageKey = "postContactLastSentAt";
+    var nameInput = form.querySelector('input[name="name"]');
+    var emailInput = form.querySelector('input[name="email"]');
+    var messageInput = form.querySelector('textarea[name="message"]');
+    var honeypotInput = form.querySelector('input[name="company"]');
 
     function setStatus(text, ok) {
       statusEl.textContent = text;
@@ -78,6 +82,7 @@ layout: default
       submitBtn.disabled = true;
       return;
     }
+    window.emailjs.init({ publicKey: publicKey });
 
     function isValidEmail(value) {
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
@@ -92,10 +97,10 @@ layout: default
     form.addEventListener("submit", function (event) {
       event.preventDefault();
 
-      var name = String(form.name.value || "").trim();
-      var email = String(form.email.value || "").trim();
-      var message = String(form.message.value || "").trim();
-      var honeypot = String(form.company.value || "").trim();
+      var name = String((nameInput && nameInput.value) || "").trim();
+      var email = String((emailInput && emailInput.value) || "").trim();
+      var message = String((messageInput && messageInput.value) || "").trim();
+      var honeypot = String((honeypotInput && honeypotInput.value) || "").trim();
       var now = Date.now();
 
       if (honeypot) {
@@ -131,26 +136,32 @@ layout: default
       setStatus("Skickar...", true);
 
       window.emailjs
-        .send(
-          serviceId,
-          templateId,
-          {
-            from_name: name,
-            reply_to: email,
-            message: message,
-            post_title: document.title || "",
-            post_url: window.location.href,
-            sent_at: new Date().toISOString()
-          },
-          { publicKey: publicKey }
-        )
+        .send(serviceId, templateId, {
+          from_name: name,
+          from_email: email,
+          reply_to: email,
+          message: message,
+          post_title: document.title || "",
+          post_url: window.location.href,
+          sent_at: new Date().toISOString()
+        })
         .then(function () {
           window.localStorage.setItem(storageKey, String(now));
           form.reset();
           setStatus("Tack. Din fråga är skickad.", true);
         })
-        .catch(function () {
-          setStatus("Kunde inte skicka just nu. Försök igen senare.", false);
+        .catch(function (error) {
+          var details = "";
+          if (error && typeof error === "object") {
+            details = error.text || error.message || error.status || "";
+          }
+          console.error("EmailJS error:", error);
+          setStatus(
+            details
+              ? "Kunde inte skicka: " + String(details)
+              : "Kunde inte skicka just nu. Försök igen senare.",
+            false
+          );
         })
         .finally(function () {
           submitBtn.disabled = false;
