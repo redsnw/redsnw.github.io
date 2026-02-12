@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div class="post-layout">
-  <aside class="post-toc" aria-label="Innehallslista">
+  <aside class="post-toc" aria-label="Innehållslista">
     <div class="toc-title">Innehåll</div>
     <nav class="toc-links"></nav>
   </aside>
@@ -11,5 +11,150 @@ layout: default
   <article class="post">
     <h1>{{ page.title }}</h1>
     {{ content }}
+
+    <section
+      class="post-contact"
+      aria-labelledby="post-contact-title"
+      data-emailjs-service-id="{{ site.emailjs.service_id }}"
+      data-emailjs-template-id="{{ site.emailjs.template_id }}"
+      data-emailjs-public-key="{{ site.emailjs.public_key }}"
+    >
+      <h2 id="post-contact-title">Fråga om inlägget</h2>
+      <p class="post-contact-copy">
+        Skriv din fråga så skickas den till min e-post.
+      </p>
+
+      <form id="post-contact-form" class="post-contact-form" novalidate>
+        <label for="post-contact-name">Namn</label>
+        <input id="post-contact-name" name="name" type="text" maxlength="80" autocomplete="name" required />
+
+        <label for="post-contact-email">E-post</label>
+        <input id="post-contact-email" name="email" type="email" maxlength="120" autocomplete="email" required />
+
+        <label for="post-contact-message">Fråga</label>
+        <textarea id="post-contact-message" name="message" rows="5" maxlength="2000" required></textarea>
+
+        <input
+          id="post-contact-company"
+          name="company"
+          type="text"
+          tabindex="-1"
+          autocomplete="off"
+          class="post-contact-honeypot"
+          aria-hidden="true"
+        />
+
+        <button id="post-contact-submit" type="submit">Skicka fråga</button>
+        <p id="post-contact-status" class="post-contact-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
   </article>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  (function () {
+    var contactRoot = document.querySelector(".post-contact");
+    var form = document.getElementById("post-contact-form");
+    if (!contactRoot || !form) return;
+
+    var statusEl = document.getElementById("post-contact-status");
+    var submitBtn = document.getElementById("post-contact-submit");
+    var serviceId = (contactRoot.dataset.emailjsServiceId || "").trim();
+    var templateId = (contactRoot.dataset.emailjsTemplateId || "").trim();
+    var publicKey = (contactRoot.dataset.emailjsPublicKey || "").trim();
+    var cooldownMs = 60000;
+    var firstSeen = Date.now();
+    var storageKey = "postContactLastSentAt";
+
+    function setStatus(text, ok) {
+      statusEl.textContent = text;
+      statusEl.classList.toggle("ok", !!ok);
+      statusEl.classList.toggle("bad", !ok);
+    }
+
+    if (!serviceId || !templateId || !publicKey) {
+      setStatus("Kontaktformuläret är inte konfigurerat än.", false);
+      submitBtn.disabled = true;
+      return;
+    }
+
+    function isValidEmail(value) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    }
+
+    function lastSentAt() {
+      var raw = window.localStorage.getItem(storageKey);
+      var value = Number(raw);
+      return Number.isFinite(value) ? value : 0;
+    }
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      var name = String(form.name.value || "").trim();
+      var email = String(form.email.value || "").trim();
+      var message = String(form.message.value || "").trim();
+      var honeypot = String(form.company.value || "").trim();
+      var now = Date.now();
+
+      if (honeypot) {
+        setStatus("Skickning blockerad.", false);
+        return;
+      }
+      if (now - firstSeen < 1200) {
+        setStatus("Vänta en sekund och försök igen.", false);
+        return;
+      }
+      if (now - lastSentAt() < cooldownMs) {
+        setStatus("Vänta 1 minut innan nästa fråga.", false);
+        return;
+      }
+      if (name.length < 2 || name.length > 80) {
+        setStatus("Namn måste vara 2-80 tecken.", false);
+        return;
+      }
+      if (!isValidEmail(email)) {
+        setStatus("Ange en giltig e-postadress.", false);
+        return;
+      }
+      if (message.length < 10 || message.length > 2000) {
+        setStatus("Frågan måste vara 10-2000 tecken.", false);
+        return;
+      }
+      if (!window.emailjs || typeof window.emailjs.send !== "function") {
+        setStatus("EmailJS kunde inte laddas.", false);
+        return;
+      }
+
+      submitBtn.disabled = true;
+      setStatus("Skickar...", true);
+
+      window.emailjs
+        .send(
+          serviceId,
+          templateId,
+          {
+            from_name: name,
+            reply_to: email,
+            message: message,
+            post_title: document.title || "",
+            post_url: window.location.href,
+            sent_at: new Date().toISOString()
+          },
+          { publicKey: publicKey }
+        )
+        .then(function () {
+          window.localStorage.setItem(storageKey, String(now));
+          form.reset();
+          setStatus("Tack. Din fråga är skickad.", true);
+        })
+        .catch(function () {
+          setStatus("Kunde inte skicka just nu. Försök igen senare.", false);
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+        });
+    });
+  })();
+</script>
