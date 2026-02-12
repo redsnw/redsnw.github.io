@@ -140,6 +140,11 @@ layout: default
       window.emailjs
         .send(serviceId, templateId, {
           to_email: toEmail,
+          to: toEmail,
+          recipient_email: toEmail,
+          user_email: toEmail,
+          email_to: toEmail,
+          target_email: toEmail,
           from_name: name,
           from_email: email,
           reply_to: email,
@@ -159,6 +164,10 @@ layout: default
             details = error.text || error.message || error.status || "";
           }
           console.error("EmailJS error:", error);
+          if (String(details).toLowerCase().indexOf("recipients address is empty") !== -1) {
+            setStatus("EmailJS-template saknar mottagare. Sätt 'To Email' till {{to_email}} i EmailJS.", false);
+            return;
+          }
           setStatus(
             details
               ? "Kunde inte skicka: " + String(details)
