@@ -40,6 +40,11 @@ title: Redsnw blog
     display: block;
   }
 
+  .thumb-contain {
+    object-fit: contain;
+    background: #0f1418;
+  }
+
   .p { padding: 16px; }
   .meta { opacity: .75; font-size: 0.9rem; margin: 6px 0 10px; }
   .title { font-size: 1.1rem; margin: 0; line-height: 1.2; }
@@ -51,14 +56,14 @@ title: Redsnw blog
     <a class="card" href="{{ post.url }}">
       {% if post.image %}
         <div class="media">
-          <img class="thumb" src="{{ post.image }}" alt="">
+          <img class="thumb{% if post.image_fit == 'contain' %} thumb-contain{% endif %}" src="{{ post.image }}" alt="">
         </div>
       {% endif %}
 
       <div class="p">
         <div class="meta">
           {{ post.date | date: "%d %b %Y" }}
-          •
+          &bull;
           {% assign words = post.content | number_of_words %}
           {% assign mins = words | divided_by: 200 | plus: 1 %}
           {{ mins }} min read
@@ -69,3 +74,4 @@ title: Redsnw blog
     </a>
   {% endfor %}
 </div>
+

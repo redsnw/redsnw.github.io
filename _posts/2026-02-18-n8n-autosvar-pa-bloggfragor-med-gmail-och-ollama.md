@@ -1,10 +1,11 @@
-﻿---
+---
 layout: post
-title: "n8n autosvar pÃ¥ bloggfrÃ¥gor med Gmail och Ollama"
+title: "n8n autosvar pa bloggfragor med Gmail och Ollama"
 categories: [blogpost]
 tags: [n8n, Gmail, Ollama, Automation]
 render_with_liquid: false
 image: assets/img/n8n-workflow-autosvar.png
+image_fit: contain
 ---
 
 <!--more-->
