@@ -119,6 +119,13 @@ Message (Expression):
 - `service refused the connection` i n8n HTTP: fel host (`localhost` i container). Löstes med `host.docker.internal`.
 - `Reference node doesn't exist`: fel nodnamn i expression (`IF` vs `If`).
 
+<figure class="demo-video-card">
+  <figcaption class="demo-video-label">Demo-video (n8n autosvar)</figcaption>
+  <a href="https://www.youtube.com/watch?v=NNY5bbsG_Aw" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.youtube.com/vi/NNY5bbsG_Aw/0.jpg" alt="Demo video för n8n autosvar med Gmail och Ollama" loading="lazy" />
+  </a>
+</figure>
+
 ## Sammanfattning
 Lösningen fungerar nu helt lokalt:
 - formulär på bloggen skickar mail
