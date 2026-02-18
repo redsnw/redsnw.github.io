@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "n8n autosvar pa bloggfragor med Gmail och Ollama"
+title: "n8n autosvar på bloggfrågor med Gmail och Ollama"
 categories: [blogpost]
 tags: [n8n, Gmail, Ollama, Automation]
 render_with_liquid: false
@@ -12,17 +12,17 @@ image_fit: contain
 
 {% raw %}
 ## Introduktion
-I denna genomgang visar jag hur jag byggde ett automatiskt e-postsvar for fragor fran bloggen.
-Flodet tar emot mail, filtrerar ratt meddelanden, genererar svar med lokal AI (Ollama) och skickar tillbaka svaret via Gmail i n8n.
+I denna genomgång visar jag hur jag byggde ett automatiskt e-postsvar för frågor från bloggen.
+Flödet tar emot mail, filtrerar rätt meddelanden, genererar svar med lokal AI (Ollama) och skickar tillbaka svaret via Gmail i n8n.
 
-Malet var:
-- inga API-kostnader for AI
-- autosvar pa svenska
-- enkel felsokning om nagot gar fel
+Målet var:
+- inga API-kostnader för AI
+- autosvar på svenska
+- enkel felsökning om något går fel
 
 ## Tutorial
 ### Arkitektur
-Flodet i n8n:
+Flödet i n8n:
 1) `Gmail Trigger`
 2) `If` (filtrering av bloggmail)
 3) `HTTP Request` mot Ollama
@@ -34,13 +34,13 @@ docker volume create n8n_data
 docker run -d --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n n8nio/n8n
 ```
 
-Oppna:
+Öppna:
 ```text
 http://localhost:5678
 ```
 
 ### 2. Koppla Gmail i n8n
-Jag anvande OAuth2 med Google Cloud:
+Jag använde OAuth2 med Google Cloud:
 - API: Gmail API
 - OAuth client type: Web application
 - Redirect URI:
@@ -49,10 +49,10 @@ Jag anvande OAuth2 med Google Cloud:
 http://localhost:5678/rest/oauth2-credential/callback
 ```
 
-Nar credentials var sparade kunde `Gmail Trigger` lasa inkommande mail.
+När credentials var sparade kunde `Gmail Trigger` läsa inkommande mail.
 
-### 3. IF-filter for att fanga formularmail
-Eftersom subject varierar filtrerade jag pa innehall i `snippet`.
+### 3. IF-filter för att fånga formulärmail
+Eftersom subject varierar filtrerade jag på innehåll i `snippet`.
 
 Condition 1:
 ```text
@@ -61,7 +61,7 @@ Condition 1:
 
 Condition 2:
 ```text
-{{$json.snippet}} contains Fraga:
+{{$json.snippet}} contains Fråga:
 ```
 
 Logik:
@@ -69,18 +69,18 @@ Logik:
 AND
 ```
 
-### 4. Installera och kora Ollama lokalt
-Installera Ollama for Windows och kor:
+### 4. Installera och köra Ollama lokalt
+Installera Ollama för Windows och kör:
 
 ```powershell
 & "$env:LOCALAPPDATA\Programs\Ollama\ollama.exe" pull llama3.1:8b
 & "$env:LOCALAPPDATA\Programs\Ollama\ollama.exe" serve
 ```
 
-Tips: hall `serve` igang i ett eget terminalfonster.
+Tips: håll `serve` igång i ett eget terminalfönster.
 
-### 5. HTTP Request fran n8n till Ollama
-I n8n korde jag `POST` till:
+### 5. HTTP Request från n8n till Ollama
+I n8n körde jag `POST` till:
 
 ```text
 http://host.docker.internal:11434/api/generate
@@ -90,7 +90,7 @@ Body (JSON):
 ```json
 {
   "model": "llama3.1:8b",
-  "prompt": "Svara kort och professionellt pa svenska pa detta mail:\\n\\n{{$json.snippet}}\\n\\nMax 5 meningar. Avsluta med: Detta ar ett automatiskt svar.",
+  "prompt": "Svara kort och professionellt på svenska på detta mail:\\n\\n{{$json.snippet}}\\n\\nMax 5 meningar. Avsluta med: Detta är ett automatiskt svar.",
   "stream": false
 }
 ```
@@ -105,7 +105,7 @@ To (Expression):
 
 Subject:
 ```text
-Svar pa din fraga
+Svar på din fråga
 ```
 
 Message (Expression):
@@ -113,23 +113,23 @@ Message (Expression):
 {{ $node["HTTP Request"].json.response }}
 ```
 
-### 7. Vanliga problem jag stotte pa
-- `The recipients address is empty` i EmailJS: fel i template-faltet `To Email`.
+### 7. Vanliga problem jag stötte på
+- `The recipients address is empty` i EmailJS: fel i template-fältet `To Email`.
 - `Insufficient quota detected` i OpenAI: API-billing var inte aktiverad.
-- `service refused the connection` i n8n HTTP: fel host (`localhost` i container). Lostes med `host.docker.internal`.
+- `service refused the connection` i n8n HTTP: fel host (`localhost` i container). Löstes med `host.docker.internal`.
 - `Reference node doesn't exist`: fel nodnamn i expression (`IF` vs `If`).
 
 ## Sammanfattning
-Losningen fungerar nu helt lokalt:
-- formular pa bloggen skickar mail
-- n8n fangar ratt mail
+Lösningen fungerar nu helt lokalt:
+- formulär på bloggen skickar mail
+- n8n fångar rätt mail
 - Ollama genererar autosvar
 - Gmail skickar svaret tillbaka automatiskt
 
-Nasta steg ar att lagga till:
-- max 1 autosvar per avsandare per 24h
+Nästa steg är att lägga till:
+- max 1 autosvar per avsändare per 24h
 - blockering av no-reply-adresser
-- battre loggning av skickade autosvar
+- bättre loggning av skickade autosvar
 
 ## Referenser
 ```text
@@ -140,4 +140,3 @@ https://github.com/ollama/ollama/blob/main/docs/api.md
 https://console.cloud.google.com/
 ```
 {% endraw %}
-
