@@ -19,7 +19,7 @@ Målet var:
 - autosvar på svenska
 - enkel felsökning om något går fel
 
-## Uppgift
+## Tutorial
 
 ### Arkitektur
 Flödet i n8n:
