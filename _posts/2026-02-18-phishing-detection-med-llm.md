@@ -32,6 +32,8 @@ Min pipeline:
 7) `Edit Fields` - parse av AI-svar till `label`, `confidence`, `reason`
 8) `If` - om `label=phishing` sätt phishing-label, annars safe-label
 
+![n8n phishing workflow](/assets/img/n8n-phishing-workflow.png.png)
+
 ### 1. Hard rule med nyckelord
 För snabb första kontroll körde jag regex i en `If`-nod:
 
