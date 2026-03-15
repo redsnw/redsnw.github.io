@@ -4,7 +4,7 @@ title: "Phishing detection med LLM"
 categories: [blogpost]
 tags: [Phishing, LLM, Detection, Security, n8n, Ollama]
 render_with_liquid: false
-image: assets/img/phish_cam_1-768x768.jpeg
+image: assets/img/n8n-phishing-workflow.png.png
 image_fit: contain
 ---
 
